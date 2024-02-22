@@ -1,45 +1,27 @@
 const express = require("express");
-const List = require("../models/listModel");
+const {
+  createListItem,
+  getFullList,
+  getListItem,
+  deleteListItem,
+  updateListItem,
+} = require('../controllers/listController')
 
 const router = express.Router();
 
-// GET list
-router.get("/", (req, res) => {
-  res.json({ msg: "GET list" });
-});
+// GET full list
+router.get("/", getFullList);
 
 // GET single list item
-router.get("/:id", (req, res) => {
-  res.json({ msg: "GET single list item" });
-});
-
-
-
+router.get("/:id", getListItem);
 
 //POST new list item
-router.post("/", async (req, res) => {
-
-  const { id, option, include, style } = req.body;
-
-  try {
-    const list = await List.create({ id, option, include, style });
-    res.status(200).json(list);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
-
-
-
+router.post("/", createListItem);
 
 //DELETE new list item
-router.delete("/:id", (req, res) => {
-  res.json({ msg: "DELETE new list item" });
-});
+router.delete("/:id", deleteListItem);
 
 //UPDATE new list item
-router.patch("/:id", (req, res) => {
-  res.json({ msg: "UPDATE a list item" });
-});
+router.patch("/:id", updateListItem);
 
 module.exports = router;

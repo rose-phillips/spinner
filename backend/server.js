@@ -11,7 +11,6 @@ const app = express();
 app.use(express.json());
 
 app.use((req, res, next) => {
-  console.log("========");
   console.log(req.path, req.method);
   next();
 });
@@ -25,7 +24,6 @@ mongoose
   .then(() => {
     //listening for requests
     app.listen(process.env.PORT, () => {
-      console.log("=============");
       console.log(
         "Connected to database and listening on port",
         process.env.PORT
@@ -33,6 +31,5 @@ mongoose
     });
   })
   .catch((error) => {
-    console.log("==========");
     console.log(error);
   });

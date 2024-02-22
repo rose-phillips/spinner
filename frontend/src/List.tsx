@@ -1,28 +1,14 @@
-import { useState, useRef, useEffect } from "react";
-import { Wheel } from "react-custom-roulette";
-
+import { useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import type { Item } from "./ListAndSpinner";
 
-interface Item {
-  id: string;
-  option: string;
-  include: boolean;
-  score: number;
-}
-
-function List() {
-  const tempList = [
-    {
-      option: "0",
-      style: { backgroundColor: "green", textColor: "black" },
-    },
-  ];
-  const [list, setList] = useState<Item[]>(() => {
-    const saved = localStorage.getItem("SpinnerApp.list");
-    const initialValue = JSON.parse(saved!);
-    return initialValue || "";
-  });
-
+function List({
+  list,
+  setList,
+}: {
+  list: Item[];
+  setList: React.Dispatch<React.SetStateAction<Item[]>>;
+}) {
   const itemNameRef = useRef<null | HTMLInputElement>(null);
 
   const handleAdd = (e: any) => {
@@ -48,7 +34,10 @@ function List() {
   };
 
   const handleClearAll = () => {
-    setList([]);
+    const newList = list.map((item) => {
+      return { ...item, score: 0 };
+    });
+    setList(newList);
   };
 
   useEffect(() => {
@@ -63,24 +52,11 @@ function List() {
     setList(shuffledList);
   };
 
-  const [mustSpin, setMustSpin] = useState(false);
-  const [prizeNumber, setPrizeNumber] = useState(0);
-
-  const handleSpinClick = () => {
-    const newPrizeNumber = Math.floor(Math.random() * list.length);
-    setPrizeNumber(newPrizeNumber);
-    setMustSpin(true);
-  };
-
   return (
     <>
-      <div className="my-auto mx-3 p-3">
+      <div className="my-auto input-form mx-5">
         <form onSubmit={handleAdd} className="mb-3">
-          <input
-            ref={itemNameRef}
-            placeholder="...add another item"
-            type="text"
-          />
+          <input ref={itemNameRef} placeholder="...add person" type="text" />
           <button type="submit">add</button>
         </form>
         <button onClick={handleShuffle} className="mb-3">
@@ -90,31 +66,24 @@ function List() {
         {list &&
           list?.map((item) => (
             <div key={item.option} className="mb-1">
-              <label key={item.id}>
+              <label className="container" key={item.id}>
                 <input
                   key={item.id}
                   type="checkbox"
                   checked={item.include}
                   onChange={() => handleToggle(item.id)}
                 />{" "}
-                {item.option} - {item.score}
+                <span className="checkmark"></span>
+                {item.option}{" "}
+                <span className="light-and-small">
+                  -&rsaquo; {item.score} points
+                </span>
               </label>
             </div>
           ))}
         <button onClick={handleClearAll} className="mt-3">
-          delete all
+          clear points
         </button>
-      </div>
-      <div>
-        <Wheel
-          mustStartSpinning={mustSpin}
-          prizeNumber={prizeNumber}
-          data={list.length > 0 ? list : tempList}
-          onStopSpinning={() => {
-            setMustSpin(false);
-          }}
-        />
-        <button onClick={handleSpinClick}>SPIN</button>
       </div>
     </>
   );
