@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import type { Item } from "./ListAndSpinner";
+import type { Item } from "./Home";
 
 function List({
   list,

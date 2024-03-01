@@ -24,10 +24,12 @@ mongoose
   .then(() => {
     //listening for requests
     app.listen(process.env.PORT, () => {
+      console.log("====================================");
       console.log(
         "Connected to database and listening on port",
         process.env.PORT
       );
+      console.log("====================================");
     });
   })
   .catch((error) => {

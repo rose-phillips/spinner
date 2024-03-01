@@ -11,7 +11,7 @@ export interface Item {
   score: number;
 }
 
-const ListAndSpinner = () => {
+const Home = () => {
   const [list, setList] = useState<Item[]>(() => {
     const saved = localStorage.getItem("SpinnerApp.list");
     const initialValue = JSON.parse(saved!);
@@ -29,7 +29,7 @@ const ListAndSpinner = () => {
   const [isExploding, setIsExploding] = useState<boolean>(false);
 
   return (
-    <div className="d-flex flex-wrap m-auto">
+    <div className="d-flex justify-content-center flex-wrap-reverse m-auto">
       <List list={list} setList={setList} />
       <Spinner
         list={list}
@@ -50,4 +50,4 @@ const ListAndSpinner = () => {
   );
 };
 
-export default ListAndSpinner;
+export default Home;
