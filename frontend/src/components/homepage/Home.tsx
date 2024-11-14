@@ -15,7 +15,7 @@ const Home = () => {
   const [list, setList] = useState<Item[]>(() => {
     const saved = localStorage.getItem("SpinnerApp.list");
     const initialValue = JSON.parse(saved!);
-    return initialValue || "";
+    return initialValue || [];
   });
 
   const [open, setOpen] = useState<boolean>(false);
