@@ -1,5 +1,5 @@
 import Popup from "reactjs-popup";
-import type { Item } from "./ListAndSpinner";
+import type { Item } from "./Home";
 
 const WinnerPopup = ({
   open,

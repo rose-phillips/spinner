@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Wheel } from "react-custom-roulette";
-import type { Item } from "./ListAndSpinner";
+import type { Item } from "./Home";
 
 const Spinner = ({
   list,
