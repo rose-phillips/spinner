@@ -2,24 +2,26 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const listSchema = new Schema({
+const listSchema = new Schema(
+  {
     id: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     option: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     include: {
-        type: Boolean,
-        required: false
+      type: Boolean,
+      required: false,
     },
     style: {
-        type: Object,
-        required: false
-    }
-}, {timestamps: true});
+      type: Object,
+      required: false,
+    },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('List', listSchema)
-
+module.exports = mongoose.model("List", listSchema);
