@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
 import type { Item } from "./Home";
 
@@ -44,10 +44,10 @@ function List({
     setList(newList);
   };
 
-  const getWinnerWording = () => {
+  const getWinnerWording = useCallback(() => {
   if (winnersArray.length <= 1 ) return ` === winning this month`
   else return ` === tied`
-} 
+} ,[winnersArray])
     useEffect(() => {
     localStorage.setItem("SpinnerApp.list", JSON.stringify(list));
     const winners: string[] = []
@@ -58,7 +58,7 @@ function List({
     }
   })
     getWinnerWording()
-  }, [list]);
+  }, [list, highestScoreThisMonth, getWinnerWording]);
 
 
   return (

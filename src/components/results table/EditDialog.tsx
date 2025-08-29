@@ -46,7 +46,7 @@ export default function EditDialog(
     }
     //
     const handleUpdate = () => {
-      list.map((item, index) => {
+      list.forEach((item, index) => {
         let newList;
         if (item.id === itemToEdit?.id) 
         {  
