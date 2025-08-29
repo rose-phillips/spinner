@@ -54,10 +54,10 @@ function List({
       winners.push(item.option)
     }
   })
-  const wording = winnersArray.length <= 1 ? ` === winning this month` : ` === tied`
+  const wording = winners.length <= 1 ? ` === winning this month` : ` === tied`
     setWinnersArray(winners)
     setWinnerWording(wording)
-  }, [list]);
+  }, [list, highestScoreThisMonth]);
 
 
   return (
