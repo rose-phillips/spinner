@@ -60,14 +60,6 @@ function List({
     getWinnerWording()
   }, [list]);
 
-  const handleShuffle = () => {
-    let shuffledList = list
-      .map((item) => ({ item, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ item }) => item);
-    setList(shuffledList);
-  };
-
 
   return (
     <>
@@ -100,9 +92,6 @@ function List({
               </label>
             </div>
           ))}
-        <button onClick={handleShuffle} className="mt-3">
-          shuffle
-        </button>
       </div>
     </>
   );
