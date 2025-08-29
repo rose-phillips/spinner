@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import type { Item } from "./Home";
 
@@ -14,6 +14,7 @@ function List({
   months: string[]
 }) {
   const [winnersArray, setWinnersArray] = useState<String[]>([])
+  const [winnerWording, setWinnerWording] = useState("")
   const itemNameRef = useRef<null | HTMLInputElement>(null);
 
   const handleAdd = (e: any) => {
@@ -44,21 +45,19 @@ function List({
     setList(newList);
   };
 
-  const getWinnerWording = useCallback(() => {
-  if (winnersArray.length <= 1 ) return ` === winning this month`
-  else return ` === tied`
-} ,[winnersArray])
+
     useEffect(() => {
     localStorage.setItem("SpinnerApp.list", JSON.stringify(list));
     const winners: string[] = []
     list.forEach((item) => {
     if (item.monthlyScore[new Date().getMonth()] === highestScoreThisMonth) {
       winners.push(item.option)
-      setWinnersArray([...winners])
     }
   })
-    getWinnerWording()
-  }, [list, highestScoreThisMonth, getWinnerWording]);
+  const wording = winnersArray.length <= 1 ? ` === winning this month` : ` === tied`
+    setWinnersArray(winners)
+    setWinnerWording(wording)
+  }, [list]);
 
 
   return (
@@ -80,7 +79,7 @@ function List({
                 />{" "}
                 <span className="checkmark"></span>
                 <span>{item.option}
-                {highestScoreThisMonth === item.monthlyScore[new Date().getMonth()] ?  <span className="listWinner">{getWinnerWording()}</span> : <span></span>}
+                {highestScoreThisMonth === item.monthlyScore[new Date().getMonth()] ?  <span className="listWinner">{winnerWording}</span> : <span></span>}
                 </span>
                  
                 <button
