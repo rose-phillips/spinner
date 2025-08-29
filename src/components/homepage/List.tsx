@@ -13,7 +13,6 @@ function List({
   highestScoreThisMonth: number;
   months: string[]
 }) {
-  const [winnersArray, setWinnersArray] = useState<String[]>([])
   const [winnerWording, setWinnerWording] = useState("")
   const itemNameRef = useRef<null | HTMLInputElement>(null);
 
@@ -55,7 +54,6 @@ function List({
     }
   })
   const wording = winners.length <= 1 ? ` === winning this month` : ` === tied`
-    setWinnersArray(winners)
     setWinnerWording(wording)
   }, [list, highestScoreThisMonth]);
 
