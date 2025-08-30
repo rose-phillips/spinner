@@ -1,14 +1,19 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import type { Item } from "./Home";
 
 function List({
   list,
   setList,
+  highestScoreThisMonth,
+  months
 }: {
   list: Item[];
   setList: React.Dispatch<React.SetStateAction<Item[]>>;
+  highestScoreThisMonth: number;
+  months: string[]
 }) {
+  const [winnerWording, setWinnerWording] = useState("")
   const itemNameRef = useRef<null | HTMLInputElement>(null);
 
   const handleAdd = (e: any) => {
@@ -18,7 +23,8 @@ function List({
       id: uuidv4().substr(0, 5),
       option: itemNameRef.current?.value!,
       include: true,
-      score: 0,
+      monthlyScore: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      score: 0
     };
     const newList = [...list, newItem];
     setList(newList);
@@ -33,24 +39,24 @@ function List({
     setList(newList);
   };
 
-  const handleClearAll = () => {
-    const newList = list.map((item) => {
-      return { ...item, score: 0 };
-    });
+  const handleDelete = (id: string) => {
+    const newList = list?.filter((item) => item.id !== id);
     setList(newList);
   };
 
-  useEffect(() => {
-    localStorage.setItem("SpinnerApp.list", JSON.stringify(list));
-  }, [list]);
 
-  const handleShuffle = () => {
-    let shuffledList = list
-      .map((item) => ({ item, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ item }) => item);
-    setList(shuffledList);
-  };
+    useEffect(() => {
+    localStorage.setItem("SpinnerApp.list", JSON.stringify(list));
+    const winners: string[] = []
+    list.forEach((item) => {
+    if (item.monthlyScore[new Date().getMonth()] === highestScoreThisMonth) {
+      winners.push(item.option)
+    }
+  })
+  const wording = winners.length <= 1 ? ` === winning this month` : ` === tied`
+    setWinnerWording(wording)
+  }, [list, highestScoreThisMonth]);
+
 
   return (
     <>
@@ -59,10 +65,6 @@ function List({
           <input ref={itemNameRef} placeholder="...add person" type="text" />
           <button type="submit">add</button>
         </form>
-        <button onClick={handleShuffle} className="mb-3">
-          shuffle
-        </button>
-
         {list &&
           list?.map((item) => (
             <div key={item.option} className="mb-1">
@@ -74,16 +76,19 @@ function List({
                   onChange={() => handleToggle(item.id)}
                 />{" "}
                 <span className="checkmark"></span>
-                {item.option}{" "}
-                <span className="light-and-small">
-                  -&rsaquo; {item.score} points
+                <span>{item.option}
+                {highestScoreThisMonth === item.monthlyScore[new Date().getMonth()] ?  <span className="listWinner">{winnerWording}</span> : <span></span>}
                 </span>
+                 
+                <button
+                  className="delete-button"
+                  onClick={() => handleDelete(item.id)}
+                >
+                  X
+                </button>
               </label>
             </div>
           ))}
-        <button onClick={handleClearAll} className="mt-3">
-          clear points
-        </button>
       </div>
     </>
   );
