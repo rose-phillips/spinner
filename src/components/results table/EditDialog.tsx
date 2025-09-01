@@ -9,7 +9,8 @@ export default function EditDialog(
     setList,
     itemToEdit,
     setItemToEdit,
-    months
+    months,
+    thisYear
   } : 
   {
     pointsEditorOpen: boolean; 
@@ -19,6 +20,7 @@ export default function EditDialog(
     itemToEdit: Item | null;
     setItemToEdit:  React.Dispatch<React.SetStateAction<Item | null>>;
     months: string[];
+    thisYear: number
   }) 
     
     {
@@ -37,7 +39,7 @@ export default function EditDialog(
 
     //
     const handleChange = (monthIndex: number, value: string) => {
-      const newMonthlyScore = itemToEdit?.monthlyScore;
+      const newMonthlyScore = itemToEdit?.allScores[thisYear];
       for (let i = 0; i < 12; i++) {
        if (monthIndex === i && newMonthlyScore) {
         newMonthlyScore[i] = Number(value);
@@ -50,7 +52,7 @@ export default function EditDialog(
         let newList;
         if (item.id === itemToEdit?.id) 
         {  
-           newList = [...list, list[index].monthlyScore = itemToEdit.monthlyScore]
+           newList = [...list, list[index].allScores = itemToEdit.allScores]
           return newList;
         } else newList = [...list]
         setList(newList)
@@ -66,7 +68,7 @@ export default function EditDialog(
     <button className="points-editor-close" type="button" onClick={closeModal}>X</button>
     <form className="edit-points-form" action="">
       {months.map((month, index) => <div className="form-item" key={index}><label htmlFor={month}>{month}</label>
-      <input type="string" id={month} defaultValue={itemToEdit.monthlyScore[index]} onChange={(ev) => handleChange(index, ev.target.value)} /></div>)}
+      <input type="string" id={month} defaultValue={itemToEdit.allScores[thisYear][index]} onChange={(ev) => handleChange(index, ev.target.value)} /></div>)}
     </form>
     <button type="button" value="submit" onClick={handleUpdate}>Update!</button>
     </div>
