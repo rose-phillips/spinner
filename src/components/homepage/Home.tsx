@@ -81,7 +81,7 @@ const Home = () => {
     });
     setHighestPerMonth(highestPerMonth);
 
-  }, [list]);
+  }, [list,thisYear]);
   //
 
   return (
