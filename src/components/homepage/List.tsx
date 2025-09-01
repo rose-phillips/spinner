@@ -6,12 +6,13 @@ function List({
   list,
   setList,
   highestScoreThisMonth,
-  months
+  thisYear
 }: {
   list: Item[];
   setList: React.Dispatch<React.SetStateAction<Item[]>>;
   highestScoreThisMonth: number;
-  months: string[]
+  months: string[];
+  thisYear: number;
 }) {
   const [winnerWording, setWinnerWording] = useState("")
   const itemNameRef = useRef<null | HTMLInputElement>(null);
@@ -23,8 +24,9 @@ function List({
       id: uuidv4().substr(0, 5),
       option: itemNameRef.current?.value!,
       include: true,
-      monthlyScore: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      score: 0
+       allScores: {[thisYear]: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+      score: 0,
+      active: true
     };
     const newList = [...list, newItem];
     setList(newList);
@@ -49,13 +51,13 @@ function List({
     localStorage.setItem("SpinnerApp.list", JSON.stringify(list));
     const winners: string[] = []
     list.forEach((item) => {
-    if (item.monthlyScore[new Date().getMonth()] === highestScoreThisMonth) {
+    if (item.allScores[thisYear][new Date().getMonth()] === highestScoreThisMonth) {
       winners.push(item.option)
     }
   })
   const wording = winners.length <= 1 ? ` === winning this month` : ` === tied`
     setWinnerWording(wording)
-  }, [list, highestScoreThisMonth]);
+  }, [list, highestScoreThisMonth, thisYear]);
 
 
   return (
@@ -77,7 +79,7 @@ function List({
                 />{" "}
                 <span className="checkmark"></span>
                 <span>{item.option}
-                {highestScoreThisMonth === item.monthlyScore[new Date().getMonth()] ?  <span className="listWinner">{winnerWording}</span> : <span></span>}
+                {highestScoreThisMonth === item.allScores[thisYear][new Date().getMonth()] ?  <span className="listWinner">{winnerWording}</span> : <span></span>}
                 </span>
                  
                 <button

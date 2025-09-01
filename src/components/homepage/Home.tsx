@@ -5,12 +5,17 @@ import WinnerPopup from "./WinnerPopup";
 import Confetti from "./Confetti";
 import Table from "../results table/Table";
 
+export interface Scores {
+  [year: number]: number[],
+}
+
 export interface Item {
   id: string;
   option: string;
   include: boolean;
-  monthlyScore: number[];
+  allScores: Scores;
   score: number;
+  active: boolean
 }
 
 const Home = () => {
@@ -20,13 +25,16 @@ const Home = () => {
     return initialValue || [];
   });
 
+  const thisYear = new Date().getFullYear()
+
   const [open, setOpen] = useState<boolean>(false);
   const [winner, setWinner] = useState<Item>({
     id: "id",
     option: "option",
     include: true,
-    monthlyScore: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    score: 0
+    allScores: {[thisYear]: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+    score: 0,
+    active: true
   });
 
   const [isExploding, setIsExploding] = useState<boolean>(false);
@@ -54,7 +62,7 @@ const Home = () => {
     const getScoresByMonth = (index: number) => {
       const column: any = [];
       list.forEach((item) => {
-        column.push(item.monthlyScore[index]);
+        column.push(item.allScores[thisYear][index]);
       });
       return column;
     };
@@ -84,6 +92,7 @@ const Home = () => {
         setList={setList} 
         highestScoreThisMonth={highestPerMonth[new Date().getMonth()]}
         months={months}
+        thisYear={thisYear}
         />
         <Spinner
           list={list}
@@ -98,6 +107,7 @@ const Home = () => {
           list={list}
           setList={setList}
           winner={winner}
+          thisYear={thisYear}
         />
         <Confetti isExploding={isExploding} />
       </div>
@@ -108,6 +118,7 @@ const Home = () => {
         highestPerMonth={highestPerMonth} 
         setHighestPerMonth={setHighestPerMonth}
         months={months}
+        thisYear={thisYear}
         />
       </div>
     </>

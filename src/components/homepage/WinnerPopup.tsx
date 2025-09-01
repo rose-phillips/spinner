@@ -6,13 +6,15 @@ const WinnerPopup = ({
   setOpen,
   list,
   setList,
-  winner
+  winner,
+  thisYear
 }: {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   list: Item[];
   setList: React.Dispatch<React.SetStateAction<Item[]>>;
-  winner: Item
+  winner: Item;
+  thisYear: number
 }) => {
   const closeModal = () => setOpen(false);
 
@@ -20,16 +22,19 @@ const WinnerPopup = ({
     const currentMonthIndex = new Date().getMonth();
     const newList = list.map((item, index) => {
       if (item.id === id) {
-        const newMonthlyScores = item.monthlyScore.map((score, index) => {
+        const newMonthlyScores = item.allScores[thisYear].map((score, index) => {
           if (index === currentMonthIndex) {
             return ++score;
           } else return score;
         });
-        return {
-          ...item,
-          monthlyScore: newMonthlyScores,
-          score: newMonthlyScores[currentMonthIndex],
-        };
+return {
+  ...item,
+  allScores: {
+    ...item.allScores,
+    [thisYear]: newMonthlyScores,
+  },
+  score: newMonthlyScores[currentMonthIndex],
+};
       } else return item;
     });
     setList(newList);

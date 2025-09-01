@@ -3,13 +3,14 @@ import type { Item } from "../homepage/Home";
 import EditDialog from "./EditDialog";
 export default function Table(
   { 
-  list, setList, highestPerMonth, setHighestPerMonth, months
+  list, setList, highestPerMonth, setHighestPerMonth, months, thisYear
 }: { 
   list: Item[]; 
   setList: React.Dispatch<React.SetStateAction<Item[]>>;
   highestPerMonth: number[];
   setHighestPerMonth: React.Dispatch<React.SetStateAction<number[]>>;
   months: string[];
+  thisYear: number;
 }
 ) {
   //
@@ -30,7 +31,7 @@ export default function Table(
           {months.map((month) => (
             <td key={month}>{month.substring(0,3)}</td>
           ))}
-          <td>Total</td>
+          <td>{thisYear}</td>
         </tr>
       </thead>
       <tbody>
@@ -48,7 +49,7 @@ export default function Table(
             >
               {item.option}
             </td>
-            {item.monthlyScore.map((score, index) => (
+            {item.allScores[thisYear].map((score, index) => (
               <td
                 key={`${item.option}-${months[index]}`}
                 style={{
@@ -59,7 +60,7 @@ export default function Table(
               </td>
             ))}
             <td className="last-td">
-              {item.monthlyScore.reduce((accumulator, currentValue) => {
+              {item.allScores[thisYear].reduce((accumulator, currentValue) => {
                 return accumulator + currentValue;
               }, 0)}
               <button className="edit-button" onClick={() => handleEdit(item)}>edit</button>
@@ -71,6 +72,7 @@ export default function Table(
               itemToEdit={itemToEdit}
               setItemToEdit={setItemToEdit}
               months={months}
+              thisYear={thisYear}
               />
             </td>
           </tr>
