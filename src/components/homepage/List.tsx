@@ -1,6 +1,7 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import type { Item } from "./Home";
+import greggsLogo from '../../assets/images/greggs-no-text-small.png'
 
 function List({
   list,
@@ -14,7 +15,6 @@ function List({
   months: string[];
   thisYear: number;
 }) {
-  const [winnerWording, setWinnerWording] = useState("")
   const itemNameRef = useRef<null | HTMLInputElement>(null);
 
   const handleAdd = (e: any) => {
@@ -46,19 +46,20 @@ function List({
     setList(newList);
   };
 
-
     useEffect(() => {
     localStorage.setItem("SpinnerApp.list", JSON.stringify(list));
-    const winners: string[] = []
-    list.forEach((item) => {
-    if (item.allScores[thisYear][new Date().getMonth()] === highestScoreThisMonth) {
-      winners.push(item.option)
-    }
-  })
-  const wording = winners.length <= 1 ? ` === winning this month` : ` === tied`
-    setWinnerWording(wording)
-  }, [list, highestScoreThisMonth, thisYear]);
+  }, [list]);
 
+  const getItemNameForList = (item: Item) => {
+    if (item.allScores[thisYear][new Date().getMonth()] === highestScoreThisMonth) {
+      return <span className="green">
+        {item.option}
+        <img className="greggs-logo" src={greggsLogo} alt="greggs logo" />
+        </span>
+        
+    }
+   return <span>{item.option}</span>
+  }
 
   return (
     <>
@@ -78,10 +79,7 @@ function List({
                   onChange={() => handleToggle(item.id)}
                 />{" "}
                 <span className="checkmark"></span>
-                <span>{item.option}
-                {highestScoreThisMonth === item.allScores[thisYear][new Date().getMonth()] ?  <span className="listWinner">{winnerWording}</span> : <span></span>}
-                </span>
-                 
+                 {getItemNameForList(item)}
                 <button
                   className="delete-button"
                   onClick={() => handleDelete(item.id)}

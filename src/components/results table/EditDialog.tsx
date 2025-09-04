@@ -70,7 +70,7 @@ export default function EditDialog(
       {months.map((month, index) => <div className="form-item" key={index}><label htmlFor={month}>{month}</label>
       <input type="string" id={month} defaultValue={itemToEdit.allScores[thisYear][index]} onChange={(ev) => handleChange(index, ev.target.value)} /></div>)}
     </form>
-    <button type="button" value="submit" onClick={handleUpdate}>Update!</button>
+    <button type="button" value="submit" onClick={handleUpdate}>Update</button>
     </div>
   </dialog>
   )
