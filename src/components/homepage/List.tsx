@@ -81,7 +81,7 @@ function List({
                 <span
                  style={{
                 color:
-                  item.score === highestScoreThisMonth
+                  item.allScores[thisYear][new Date().getMonth()] === highestScoreThisMonth
                     ? "chartreuse"
                     : "",
               }}>{item.option}
