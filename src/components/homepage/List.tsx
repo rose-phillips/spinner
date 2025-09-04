@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import type { Item } from "./Home";
+import greggsLogo from '../../assets/images/greggs-no-text-small.png'
 
 function List({
   list,
@@ -49,6 +50,17 @@ function List({
     localStorage.setItem("SpinnerApp.list", JSON.stringify(list));
   }, [list]);
 
+  const getItemNameForList = (item: Item) => {
+    if (item.allScores[thisYear][new Date().getMonth()] === highestScoreThisMonth) {
+      return <span className="green">
+        {item.option}
+        <img className="greggs-logo" src={greggsLogo} alt="greggs logo" />
+        </span>
+        
+    }
+   return <span>{item.option}</span>
+  }
+
   return (
     <>
       <div className="my-auto input-form mx-5">
@@ -67,15 +79,7 @@ function List({
                   onChange={() => handleToggle(item.id)}
                 />{" "}
                 <span className="checkmark"></span>
-                <span
-                 style={{
-                color:
-                  item.allScores[thisYear][new Date().getMonth()] === highestScoreThisMonth
-                    ? "chartreuse"
-                    : "",
-              }}>{item.option}
-                </span>
-                 
+                 {getItemNameForList(item)}
                 <button
                   className="delete-button"
                   onClick={() => handleDelete(item.id)}
