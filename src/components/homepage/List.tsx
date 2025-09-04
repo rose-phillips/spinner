@@ -78,8 +78,13 @@ function List({
                   onChange={() => handleToggle(item.id)}
                 />{" "}
                 <span className="checkmark"></span>
-                <span>{item.option}
-                {highestScoreThisMonth === item.allScores[thisYear][new Date().getMonth()] ?  <span className="listWinner">{winnerWording}</span> : <span></span>}
+                <span
+                 style={{
+                color:
+                  item.score === highestScoreThisMonth
+                    ? "chartreuse"
+                    : "",
+              }}>{item.option}
                 </span>
                  
                 <button
