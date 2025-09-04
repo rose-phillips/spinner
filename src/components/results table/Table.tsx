@@ -56,7 +56,7 @@ export default function Table(
                   color: score === highestPerMonth[index] ? "chartreuse" : "",
                 }}
               >
-                {score === 0 ? "" : score}
+                {score === 0 && index > new Date().getMonth() ? "" : score}
               </td>
             ))}
             <td className="last-td">
