@@ -33,7 +33,6 @@ function SoundSelect() {
         id="victory-sound-select"
         onChange={(e) => handleSoundChange(e)}
       >
-        <option value="" defaultValue={soundChoice.value}></option>
         {soundsList.map((sound) => {
           return (
             <option key={sound.value} value={sound.value}>
