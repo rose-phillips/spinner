@@ -86,7 +86,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-center flex-wrap-reverse m-auto">
+      <div className="d-flex justify-content-center flex-wrap m-auto">
         <List 
         list={list} 
         setList={setList} 

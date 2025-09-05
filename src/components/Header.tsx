@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SoundSelect from "./homepage/SoundSelect";
+import SoundSelect from "./SoundSelect";
 
 const Header = () => {
   return (

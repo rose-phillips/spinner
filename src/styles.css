@@ -33,7 +33,7 @@ body {
 
 header {
   color: var(--green);
-  padding: 0.1rem 2rem;
+  padding: 0.3rem 4rem;
   font-size: 1rem;
   margin-bottom: 3rem;
 }
@@ -51,63 +51,23 @@ header {
 header h1 {
   font-weight: 100;
   color: var(--green);
-  padding: 0.1rem 2rem;
-  margin-bottom: 3rem;
   text-decoration: none;
 }
 
-.sound-select {
+.sound-select-container {
   display: flex;
   flex-direction: column;
   color: white;
+  align-items: center;
+  font-size: 12px;
+  gap: 10px;
+  padding-top: 10px;
 }
-
-audio {
-  width: 100px;
-}
-
-audio::-webkit-media-controls-volume-slider, 
-audio::-webkit-media-controls-timeline-container, 
-audio::-webkit-media-controls-time-remaining-display,  
-audio::-webkit-media-controls-timeline {
-  display: none !important;
-}
-
-audio::-webkit-media-controls-panel {
-  padding: 0 0 0 1px;
-  justify-content: center; /*control panel elements are flex positioned*/
-}
-auto::-webkit-media-controls-panel {
-  justify-content: center;
-}
-
-audio::-webkit-media-controls-volume-slider {
-  display: none !important;
-  min-width: 0;
-}
-
-audio::-webkit-media-controls-timeline-container {
-  display: none !important;
-  min-width: 0;
-}
-
-audio::-webkit-media-controls-time-remaining-display {
-  display: none !important;
-  min-width: 0;
-}
-
-audio::-webkit-media-controls-timeline {
-  display: none !important;
-  min-width: 0;
-}
-
-@keyframes audioWidth {
-  from {
-    width: 110px;
-  }
-  to {
-    width: 84px;
-  }
+select {
+  padding: 8px;
+  border: none;
+  background-color: var(--light-grey);
+  font-size: 12px;
 }
 
 .input-form {
