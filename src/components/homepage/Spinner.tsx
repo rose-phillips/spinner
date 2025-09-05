@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Wheel } from "react-custom-roulette";
 import type { Item } from "./Home";
-const digitalSpin = require("../../assets/sounds/spinner-sound-36693.mp3");
-const spinClicks = require("../../assets/sounds/spin-clicks.mp3")
-const levelUpSound = require("../../assets/sounds/in-game-level-uptype-2-230567.mp3");
-
+import { SoundStore, useSoundStore } from "../stores/SoundStore";
+const spinClicks = require("../../assets/sounds/spin-clicks.mp3");
 
 const Spinner = ({
   list,
@@ -19,6 +17,8 @@ const Spinner = ({
   setWinner: React.Dispatch<React.SetStateAction<Item>>;
   setIsExploding: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  //
+  const soundChoice = useSoundStore((state: SoundStore) => state.soundChoice);
   //
   const [includeOnWheel, setIncludeOnWheel] = useState<Item[]>([]);
   const [mustSpin, setMustSpin] = useState(false);
@@ -41,15 +41,20 @@ const Spinner = ({
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
     setTimeout(() => {
-      spinClicksRef.current?.play();
+      playSound(spinClicksRef);
     }, 1000);
-
   };
 
-  const digitalSpinRef = useRef<HTMLAudioElement>(null);
   const spinClicksRef = useRef<HTMLAudioElement>(null);
   const levelUpSoundRef = useRef<HTMLAudioElement>(null);
 
+  const playSound = (sound: React.RefObject<HTMLAudioElement>) => {
+    if (sound.current) {
+      sound.current.volume = 0.15;
+      sound.current.play();
+    }
+  };
+  //
 
   return (
     <div className="wheel-container mx-5">
@@ -58,7 +63,7 @@ const Spinner = ({
         prizeNumber={prizeNumber}
         data={includeOnWheel.length > 0 ? includeOnWheel : tempList}
         onStopSpinning={() => {
-          levelUpSoundRef.current?.play();
+          playSound(levelUpSoundRef);
           setWinner(includeOnWheel[prizeNumber]);
           setMustSpin(false);
           setOpen(true);
@@ -77,10 +82,8 @@ const Spinner = ({
       <button className="spin-button" onClick={handleSpinClick}>
         SPIN
       </button>
-      <audio id="spin-sound-1" src={digitalSpin} ref={digitalSpinRef} />
-      <audio id="celebrate-sound-1" src={levelUpSound} ref={levelUpSoundRef} />
+      <audio id="victory-sound" src={soundChoice.sound} ref={levelUpSoundRef} />
       <audio id="spin-sound-2" src={spinClicks} ref={spinClicksRef}></audio>
-
     </div>
   );
 };

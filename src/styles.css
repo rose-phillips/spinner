@@ -33,7 +33,7 @@ body {
 
 header {
   color: var(--green);
-  padding: 0.1rem 2rem;
+  padding: 0.3rem 4rem;
   font-size: 1rem;
   margin-bottom: 3rem;
 }
@@ -51,9 +51,23 @@ header {
 header h1 {
   font-weight: 100;
   color: var(--green);
-  padding: 0.1rem 2rem;
-  margin-bottom: 3rem;
   text-decoration: none;
+}
+
+.sound-select-container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  font-size: 12px;
+  gap: 10px;
+  padding-top: 10px;
+}
+select {
+  padding: 8px;
+  border: none;
+  background-color: var(--light-grey);
+  font-size: 12px;
 }
 
 .input-form {
