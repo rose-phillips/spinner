@@ -56,6 +56,60 @@ header h1 {
   text-decoration: none;
 }
 
+.sound-select {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+audio {
+  width: 100px;
+}
+
+audio::-webkit-media-controls-volume-slider, 
+audio::-webkit-media-controls-timeline-container, 
+audio::-webkit-media-controls-time-remaining-display,  
+audio::-webkit-media-controls-timeline {
+  display: none !important;
+}
+
+audio::-webkit-media-controls-panel {
+  padding: 0 0 0 1px;
+  justify-content: center; /*control panel elements are flex positioned*/
+}
+auto::-webkit-media-controls-panel {
+  justify-content: center;
+}
+
+audio::-webkit-media-controls-volume-slider {
+  display: none !important;
+  min-width: 0;
+}
+
+audio::-webkit-media-controls-timeline-container {
+  display: none !important;
+  min-width: 0;
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+  display: none !important;
+  min-width: 0;
+}
+
+audio::-webkit-media-controls-timeline {
+  display: none !important;
+  min-width: 0;
+}
+
+@keyframes audioWidth {
+  from {
+    width: 110px;
+  }
+  to {
+    width: 84px;
+  }
+}
+
 .input-form {
   margin-right: 4rem;
   padding: 2rem;
