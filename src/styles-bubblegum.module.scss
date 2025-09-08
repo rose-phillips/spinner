@@ -1,0 +1,19 @@
+  $background-bubblegum: #f46fe7;
+  $opaque-background-bubblegum: #3a0ca371;
+  $dark-bubblegum: #e7c6ff;
+  $medium-bubblegum: #ffd166;
+  $light-bubblegum: #4cc9f0;
+  $white-bubblegum: #3f37c9;
+  $primary-bubblegum: #7209b7;
+  $secondary-bubblegum: #ff5400;
+
+:export 
+{ backgroundCol: $background-bubblegum;
+  opaqueBackground: $opaque-background-bubblegum;
+  dark: $dark-bubblegum;
+  medium: $medium-bubblegum;
+  light: $light-bubblegum;
+  whiteCol: $white-bubblegum;
+  primary: $primary-bubblegum;
+  secondary: $secondary-bubblegum;
+}

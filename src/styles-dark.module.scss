@@ -1,0 +1,19 @@
+  $background-dark: #000000;
+  $opaque-background-dark: #00000071;
+  $dark-dark: #464646;
+  $medium-dark: #acacac;
+  $light-dark: #efefef;
+  $white-dark: #ffffff;
+  $primary-dark: chartreuse;
+  $secondary-dark: #e24a2b;
+
+:export 
+{ backgroundCol: $background-dark;
+  opaqueBackground: $opaque-background-dark;
+  dark: $dark-dark;
+  medium: $medium-dark;
+  light: $light-dark;
+  whiteCol: $white-dark;
+  primary: $primary-dark;
+  secondary: $secondary-dark;
+}

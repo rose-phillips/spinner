@@ -43,7 +43,7 @@ export default function Table(
               style={{
                 color:
                   item.score === highestPerMonth[new Date().getMonth()]
-                    ? "chartreuse"
+                    ? "var(--primary)"
                     : "",
               }}
             >
@@ -53,7 +53,7 @@ export default function Table(
               <td
                 key={`${item.option}-${months[index]}`}
                 style={{
-                  color: score === highestPerMonth[index] ? "chartreuse" : "",
+                  color: score === highestPerMonth[index] ? "var(--primary)" : "",
                 }}
               >
                 {score === 0 && index > new Date().getMonth() ? "" : score}

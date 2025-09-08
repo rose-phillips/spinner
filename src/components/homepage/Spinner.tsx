@@ -2,12 +2,12 @@ import React, { useEffect, useState, useRef } from "react";
 import { Wheel } from "react-custom-roulette";
 import type { Item } from "./Home";
 import { SoundStore, useSoundStore } from "../stores/SoundStore";
+import { ThemeState, useThemeStore } from "../stores/ThemeStore";
 const spinClicks = require("../../assets/sounds/spin-clicks.mp3");
 
 const Spinner = ({
   list,
   setOpen,
-  winner,
   setWinner,
   setIsExploding,
 }: {
@@ -55,6 +55,7 @@ const Spinner = ({
     }
   };
   //
+   const themeChoice = useThemeStore((state: ThemeState) => state);
 
   return (
     <div className="wheel-container mx-5">
@@ -69,7 +70,7 @@ const Spinner = ({
           setOpen(true);
           setIsExploding(true);
         }}
-        backgroundColors={["lightgrey", "grey", "darkgrey"]}
+        backgroundColors={[themeChoice.light, themeChoice.medium, themeChoice.dark]}
         outerBorderWidth={0}
         innerBorderColor="black"
         innerBorderWidth={50}

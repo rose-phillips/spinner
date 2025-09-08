@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SoundSelect from "./SoundSelect";
+import ThemeSelect from "./ThemeSelect";
 
 const Header = () => {
   return (
@@ -9,6 +10,7 @@ const Header = () => {
           <h1 className="mx-auto my-3">{"<StandUpSpinner/>"}</h1>
         </Link>
         <SoundSelect/>
+        <ThemeSelect />
       </header>
     </div>
   );

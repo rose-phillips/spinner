@@ -2,28 +2,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
 
-:root {
-  --dark-grey: #464646;
-  --medium-grey: #acacac;
-  --light-grey: #efefef;
-  --green: chartreuse;
-  --red: #e24a2b;
+:root:has(.dark) {
+  --background: #000000;
+  --opaque-background: #00000071;
+  --dark: #464646;
+  --medium: #acacac;
+  --light: #efefef;
+  --white: #ffffff;
+  --primary: chartreuse;
+  --secondary: #e24a2b;
 }
+
+:root:has(.bubblegum) {
+  --background: #f46fe7;
+  --opaque-background: #3a0ca371;
+  --dark: #e7c6ff;
+  --medium: #ffd166;
+  --light: #4cc9f0;
+  --white: #3f37c9;
+  --primary: #7209b7;
+  --secondary: #ff5400;
+  * {
+  font-weight: 600;
+}
+div,select {
+  border-radius: 40px;
+}
+body {
+    font-family: "DynaPuff", system-ui;
+    letter-spacing: 0.2rem;
+}
+}
+
 
 * {
   font-weight: 300;
 }
 
 .green {
-  color: var(--green);
+  color: var(--primary);
 }
 
 body {
-  background: #000;
+  background: var(--background);
   margin: 0;
   font-family: "Roboto Mono";
-  color: white;
+  color: var(--white);
 }
 
 .light-and-small {
@@ -32,7 +58,7 @@ body {
 }
 
 header {
-  color: var(--green);
+  color: var(--primary);
   padding: 0.3rem 4rem;
   font-size: 1rem;
   margin-bottom: 3rem;
@@ -50,14 +76,14 @@ header {
 
 header h1 {
   font-weight: 100;
-  color: var(--green);
+  color: var(--primary);
   text-decoration: none;
 }
 
 .sound-select-container {
   display: flex;
   flex-direction: column;
-  color: white;
+  color: var(--white);
   align-items: center;
   font-size: 12px;
   gap: 10px;
@@ -66,14 +92,14 @@ header h1 {
 select {
   padding: 8px;
   border: none;
-  background-color: var(--light-grey);
+  background-color: var(--light);
   font-size: 12px;
 }
 
 .input-form {
   margin-right: 4rem;
   padding: 2rem;
-  background: var(--dark-grey);
+  background: var(--dark);
 }
 
 input {
@@ -109,7 +135,7 @@ input {
   width: 150px;
   padding: 10px 15px;
   margin: 0;
-  background-color: var(--dark-grey);
+  background-color: var(--dark);
 }
 .sound-choice .checkmark {
   left: 15px;
@@ -125,49 +151,43 @@ input {
   width: 0;
 }
 
-/* Create a custom checkbox */
 .checkmark {
   position: absolute;
   bottom: 3px;
   left: 0;
   height: 25px;
   width: 25px;
-  background-color: grey;
+  background-color: var(--dark);
   border-radius: 25px;
-  border: 1px solid darkgrey;
+  border: 1px solid var(--medium);
 }
 
-/* On mouse-over, add a grey background color */
 .container:hover input~.checkmark {
-  background-color: #ccc;
+  background-color: var(--light)
 }
 
-/* When the checkbox is checked, add a blue background */
 .container input:checked~.checkmark {
-  background-color: black;
+  background-color: var(--background);
   border-radius: 20px;
-  border: 1px solid black;
+  border: 1px solid var(--background);
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
 .container input:checked~.checkmark:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
 .container .checkmark:after {
   left: 8px;
   top: 4px;
   width: 6px;
   height: 11px;
-  border: solid chartreuse;
+  border: solid var(--primary);
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -184,7 +204,7 @@ button {
   padding: 0 5px;
   border: none;
   background-color: transparent;
-  color: #e24a2b;
+  color: var(--secondary);
 
   border-radius: 20px;
 }
@@ -201,22 +221,18 @@ button {
   z-index: 99;
   border-radius: 50%;
   background-color: transparent;
-  color: chartreuse;
+  color: var(--primary);
   font-size: 24px;
-}
-
-.border {
-  border: 2px solid salmon;
 }
 
 .winner-popup {
   padding: 10px 15px;
-  background-color: white;
-  color: black;
+  background-color: var(--white);
+  color: var(--background);
 }
 
 .winner-popup-inner-content {
-  background-color: white;
+  background-color: var(--white);
   border: none;
   margin: 0 auto;
   padding-bottom: 25px;
@@ -242,11 +258,11 @@ button {
 }
 
 table thead {
-  background: #464646;
+  background: var(--dark);
 }
 
 td {
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid var(--dark);
   padding: 5px;
   text-align: center;
 }
@@ -269,7 +285,7 @@ td {
 }
 
 dialog::backdrop {
-  background-color: #00000071;
+  background-color: var(--opaque-background);
 }
 
 .inner-dialog {
@@ -291,7 +307,7 @@ dialog::backdrop {
   }
 
   input {
-    border: 1px dotted black;
+    border: 1px dotted var(--background);
     width: 50px;
     margin-top: 5px;
   }
