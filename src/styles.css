@@ -292,7 +292,7 @@ dialog::backdrop {
   right: 0;
   top: 0;
 }
-.edit-points-form {
+.edit-points-form, .profile-image-form {
   display: flex;
   gap: 20px;
   margin: 20px;
@@ -306,6 +306,13 @@ dialog::backdrop {
     border: 1px dotted black;
     width: 50px;
     margin-top: 5px;
+  }
+}
+
+.profile-image-form {
+  align-items: center;
+  input {
+    width: 200px;
   }
 }
 

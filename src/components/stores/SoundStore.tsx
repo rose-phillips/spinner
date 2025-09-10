@@ -31,8 +31,7 @@ export const useSoundStore = create<SoundStore>()(
   persist(
     (set) => ({
       soundChoice: soundsList[0],
-      setSoundChoice: (newChoice) =>
-        set(() => ({ soundChoice: newChoice })),
+      setSoundChoice: (newChoice) => set(() => ({ soundChoice: newChoice })),
     }),
     {
       name: "SpinnerApp.victory-sound",

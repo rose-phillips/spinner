@@ -6,7 +6,15 @@ import Confetti from "./Confetti";
 import Table from "../results table/Table";
 
 export interface Scores {
-  [year: number]: number[],
+  [year: number]: number[];
+}
+
+interface ImageProps {
+  uri: string;
+  offsetX?: number;
+  offsetY?: number;
+  sizeMultiplier?: number;
+  landscape?: boolean;
 }
 
 export interface Item {
@@ -15,7 +23,8 @@ export interface Item {
   include: boolean;
   allScores: Scores;
   score: number;
-  active: boolean
+  active: boolean;
+  image?: ImageProps;
 }
 
 const Home = () => {
@@ -25,36 +34,36 @@ const Home = () => {
     return initialValue || [];
   });
 
-  const thisYear = new Date().getFullYear()
+  const thisYear = new Date().getFullYear();
 
   const [open, setOpen] = useState<boolean>(false);
   const [winner, setWinner] = useState<Item>({
     id: "id",
     option: "option",
     include: true,
-    allScores: {[thisYear]: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+    allScores: { [thisYear]: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
     score: 0,
-    active: true
+    active: true,
   });
 
   const [isExploding, setIsExploding] = useState<boolean>(false);
-    //
-    const [highestPerMonth, setHighestPerMonth] = useState<number[]>([]);
-    //
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
+  //
+  const [highestPerMonth, setHighestPerMonth] = useState<number[]>([]);
+  //
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   //
   useEffect(() => {
     //
@@ -80,19 +89,18 @@ const Home = () => {
       highestPerMonth.push(max);
     });
     setHighestPerMonth(highestPerMonth);
-
-  }, [list,thisYear]);
+  }, [list, thisYear]);
   //
 
   return (
     <>
       <div className="d-flex justify-content-center flex-wrap m-auto">
-        <List 
-        list={list} 
-        setList={setList} 
-        highestScoreThisMonth={highestPerMonth[new Date().getMonth()]}
-        months={months}
-        thisYear={thisYear}
+        <List
+          list={list}
+          setList={setList}
+          highestScoreThisMonth={highestPerMonth[new Date().getMonth()]}
+          months={months}
+          thisYear={thisYear}
         />
         <Spinner
           list={list}
@@ -112,13 +120,13 @@ const Home = () => {
         <Confetti isExploding={isExploding} />
       </div>
       <div className="d-flex flex-direction-column justify-content-center">
-        <Table 
-        list={list} 
-        setList={setList} 
-        highestPerMonth={highestPerMonth} 
-        setHighestPerMonth={setHighestPerMonth}
-        months={months}
-        thisYear={thisYear}
+        <Table
+          list={list}
+          setList={setList}
+          highestPerMonth={highestPerMonth}
+          setHighestPerMonth={setHighestPerMonth}
+          months={months}
+          thisYear={thisYear}
         />
       </div>
     </>
