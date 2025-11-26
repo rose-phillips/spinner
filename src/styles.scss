@@ -15,7 +15,7 @@
   font-weight: 300;
 }
 
-.green {
+.primary-text {
   color: var(--green);
 }
 
@@ -63,6 +63,7 @@ header h1 {
   gap: 10px;
   padding-top: 10px;
 }
+
 select {
   padding: 8px;
   border: none;
@@ -75,10 +76,10 @@ select {
   padding-bottom: 3px;
   margin-left: 10px;
   background-color: var(--medium-grey);
-  width: 30px; 
-  height: 30px; 
-  border-radius: 50%; 
-  background-color:var(--medium-grey); 
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--medium-grey);
   font-size: 16px;
 }
 
@@ -123,6 +124,7 @@ input {
   margin: 0;
   background-color: var(--dark-grey);
 }
+
 .sound-choice .checkmark {
   left: 15px;
   bottom: 10px;
@@ -234,6 +236,7 @@ button {
   padding-bottom: 25px;
   width: 400px;
 }
+
 .popup-close-button {
   padding: 2px;
   margin: 0;
@@ -253,8 +256,12 @@ button {
   left: 50%;
 }
 
-table thead {
-  background: #464646;
+table {
+  width: 85vw;
+
+  thead {
+    background: #464646;
+  }
 }
 
 td {
@@ -265,19 +272,74 @@ td {
 
 .first-td {
   text-align: left;
-  width: 100px;
+  width: 140px;
+
+  &.year-winner {
+    color: var(--green);
+
+    .crown-container {
+      display: flex;
+      position: relative;
+      height: 0;
+      width: 0;
+    }
+
+    .crown-image {
+      display: flex;
+      position: absolute;
+      left: -10px;
+      top: -5px;
+      width: 20px;
+      height: 20px;
+      transform: rotate(-45deg);
+    }
+
+  }
 }
 
-.last-td {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  align-items: center;
+.crown-container {
+  display: none;
+  position: relative;
+  height: 0;
+  width: 0;
+}
+
+.crown-image {
+  display: none;
+  height: 0;
+  width: 0;
+  position: absolute;
+  left: -10px;
+  top: -5px;
+  width: 20px;
+  height: 20px;
+  transform: rotate(-45deg);
+}
+
+.year-td {
+  width: 140px;
+  text-align: right;
+  padding-right: 40px;
+}
+
+.edit-td {
+  width: 30px;
+  padding: 0;
+  text-align: left;
+  border-bottom: none;
 }
 
 .edit-button {
-  padding: 5px;
-  font-size: 12px;
+  background-image: url('./assets/images/edit.png');
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: white;
+  font-size: 0px;
 }
 
 dialog::backdrop {
@@ -286,12 +348,17 @@ dialog::backdrop {
 
 .inner-dialog {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .points-editor-close {
   position: absolute;
   right: 0;
   top: 0;
 }
+
 .edit-points-form {
   display: flex;
   gap: 20px;

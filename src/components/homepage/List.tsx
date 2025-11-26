@@ -16,7 +16,7 @@ function List({
   thisYear: number;
 }) {
   const itemNameRef = useRef<null | HTMLInputElement>(null);
-
+// add new item to list
   const handleAdd = (e: any) => {
     e.preventDefault();
     if (itemNameRef.current?.value === "") return;
@@ -32,7 +32,7 @@ function List({
     setList(newList);
     e.target.reset();
   };
-
+// toggles item on/off the spinner
   const handleToggle = (id: string) => {
     const newList = list?.map((item) => {
       if (item.id === id) return { ...item, include: !item.include };
@@ -40,16 +40,16 @@ function List({
     });
     setList(newList);
   };
-
+// deletes item from list
   const handleDelete = (id: string) => {
     const newList = list?.filter((item) => item.id !== id);
     setList(newList);
   };
-
+// when the list state changes the local storage is updated
     useEffect(() => {
     localStorage.setItem("SpinnerApp.list", JSON.stringify(list));
   }, [list]);
-
+// styles item for list depending on the score - winners are green with a greggs logo
   const getItemNameForList = (item: Item) => {
     if (item.allScores[thisYear][new Date().getMonth()] === highestScoreThisMonth) {
       return <span className="green">

@@ -111,7 +111,7 @@ const Home = () => {
         />
         <Confetti isExploding={isExploding} />
       </div>
-      <div className="d-flex flex-direction-column justify-content-center">
+      <div className="d-flex flex-direction-column justify-content-center pt-5">
         <Table 
         list={list} 
         setList={setList} 
