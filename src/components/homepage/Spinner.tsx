@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import { Wheel } from "react-custom-roulette";
 import type { Item } from "./Home";
 import { SoundStore, useSoundStore } from "../stores/SoundStore";
-const spinClicks = require("../../assets/sounds/spin-clicks.mp3");
+// const spinClicks = require("../../assets/sounds/spin-clicks.mp3");
+const spinClicks = require("../../assets/sounds/thewheelhausaudio.mp3");
 
 const Spinner = ({
   list,
@@ -42,7 +43,7 @@ const Spinner = ({
     setMustSpin(true);
     setTimeout(() => {
       playSound(spinClicksRef);
-    }, 1000);
+    }, 10);
   };
 
   const spinClicksRef = useRef<HTMLAudioElement>(null);
@@ -50,7 +51,7 @@ const Spinner = ({
 
   const playSound = (sound: React.RefObject<HTMLAudioElement>) => {
     if (sound.current) {
-      sound.current.volume = 0.15;
+      sound.current.volume = 0.45;
       sound.current.play();
     }
   };
