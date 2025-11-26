@@ -50,7 +50,7 @@ const Spinner = ({
   const levelUpSoundRef = useRef<HTMLAudioElement>(null);
 
   const playSound = (sound: React.RefObject<HTMLAudioElement>) => {
-    if (sound.current) {
+      if (sound.current && sound.current.dataset.autoplay === 'true') {
       sound.current.volume = 0.45;
       sound.current.play();
     }
@@ -78,13 +78,13 @@ const Spinner = ({
         radiusLineWidth={2}
         fontFamily="Roboto Mono"
         fontWeight={200}
-        spinDuration={0.4}
+        spinDuration={0.38}
       />
       <button className="spin-button" onClick={handleSpinClick}>
         SPIN
       </button>
-      <audio id="victory-sound" src={soundChoice.sound} ref={levelUpSoundRef} />
-      <audio id="spin-sound-2" src={spinClicks} ref={spinClicksRef}></audio>
+      <audio id="victory-sound" src={soundChoice.sound} ref={levelUpSoundRef} data-autoplay={false} />
+      <audio id="spin-sound-2" src={spinClicks} ref={spinClicksRef} data-autoplay={true}></audio>
     </div>
   );
 };

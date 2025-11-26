@@ -53,6 +53,10 @@ function SoundSelect() {
           {play}
         </button>
       </div>
+        <div>
+            <label htmlFor="victory-sound-autoplay">Autoplay victory</label>
+            <input type="checkbox" id="victory-sound-autoplay"/>
+        </div>
 
       <audio
         id="victory-sound-choice"
