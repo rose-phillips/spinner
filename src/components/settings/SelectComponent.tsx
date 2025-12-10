@@ -7,6 +7,7 @@ type Option = {
 type SelectProps = {
     defaultValue: string,
     options: Option[],
+    handleSelectChange: ({}) => void
 }
 const SelectComponent = (props: SelectProps) => {
 

@@ -4,8 +4,7 @@ import Spinner from "./Spinner";
 import WinnerPopup from "./WinnerPopup";
 import Confetti from "./Confetti";
 import Table from "../results table/Table";
-import SelectComponent from "../settings/SelectComponent";
-import ToggleComponent from "../settings/ToggleComponent";
+import PreferencesPaneComponent from "../settings/PreferencesPane";
 
 export interface Scores {
   [year: number]: number[],
@@ -58,13 +57,6 @@ const Home = () => {
       "Dec",
     ];
   //
-
-   const soundsList = [
-    { value: "pokemonSound", name: "Pokemon", id: "Pokemon" },
-    { value: "kirbySound", name: "Kirby", id: "kirbySound" },
-    { value: "ffixSound", name: "FFIX", id: "ffixSound" },
-    { value: "marioSound", name: "Mario", id: "marioSound" },
-  ];
 
   useEffect(() => {
     //
@@ -130,10 +122,9 @@ const Home = () => {
         months={months}
         thisYear={thisYear}
         />
-        <div className="settings-popup">
-          <SelectComponent defaultValue="Please Select" options={soundsList} />
-          <ToggleComponent />
-        </div>
+
+        <PreferencesPaneComponent />
+        
       </div>
     </>
   );

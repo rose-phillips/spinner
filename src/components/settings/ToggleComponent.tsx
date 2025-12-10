@@ -1,8 +1,14 @@
-
-const ToggleComponent = () => {
+type ToggleProps = {
+    label: string,
+}
+const ToggleComponent = (props: ToggleProps) => {
   return (
-    <div>
-     
+    <div className="toggle">
+     <label className="switch">
+      {props.label}
+  <input type="checkbox" />
+  <span className="slider"></span>
+</label>
     </div>
   );
 };
