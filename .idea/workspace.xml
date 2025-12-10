@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3f652f60-0f51-4d13-b835-b7afdc3412e3" name="Changes" comment="Added a random hex generator to the confetti component which can be used instead of the static values. Not hooked up yet but it's added for later configuration" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="WARN_ABOUT_CRLF" value="false" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "rhomas"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:rose-phillips/spinner.git",
+    "accountId": "ed2046c9-0b62-4dfd-ba34-63442657d28b"
+  }
+}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="360uhWsV61n0vMKI3lEZVbSNZ8e" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "feature/new__spinner__sounds",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/richarddavidson/code/spinner/src/assets/sounds",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Run",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "/Users/richarddavidson/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TypeScript JSX"
+    ]
+  }
+}]]></component>
+  <component name="ReactDesignerToolWindowState">
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.intellij.reactbuddy.reactComponents" value="false" />
+        <entry key="com.intellij.reactbuddy.reactInspector" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/sounds" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.27397.92" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3f652f60-0f51-4d13-b835-b7afdc3412e3" name="Changes" comment="" />
+      <created>1764155930000</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764155930000</updated>
+      <workItem from="1764155932130" duration="21628000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added webstorm idea files (sorry)">
+      <option name="closed" value="true" />
+      <created>1764156913287</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764156913287</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Scrappy commit of a change in 'clicker' sound - code needs work">
+      <option name="closed" value="true" />
+      <created>1764156973366</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1764156973366</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added a hardcoded ability to turn off the autoplay of the spinner sounds and the victory sounds. Added a autoplay checkbox for the future&#10;&#10;Also tweaked the spin duration to sync up with the end of the new spin sound so the confetti triggers in time with the music">
+      <option name="closed" value="true" />
+      <created>1764165680853</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764165680853</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added a random hex generator to the confetti component which can be used instead of the static values. Not hooked up yet but it's added for later configuration">
+      <option name="closed" value="true" />
+      <created>1764168575464</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1764168575464</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added webstorm idea files (sorry)" />
+    <MESSAGE value="Scrappy commit of a change in 'clicker' sound - code needs work" />
+    <MESSAGE value="Added a hardcoded ability to turn off the autoplay of the spinner sounds and the victory sounds. Added a autoplay checkbox for the future&#10;&#10;Also tweaked the spin duration to sync up with the end of the new spin sound so the confetti triggers in time with the music" />
+    <MESSAGE value="Added a random hex generator to the confetti component which can be used instead of the static values. Not hooked up yet but it's added for later configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a random hex generator to the confetti component which can be used instead of the static values. Not hooked up yet but it's added for later configuration" />
+  </component>
+</project>
