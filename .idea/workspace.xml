@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3f652f60-0f51-4d13-b835-b7afdc3412e3" name="Changes" comment="Added a random hex generator to the confetti component which can be used instead of the static values. Not hooked up yet but it's added for later configuration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/homepage/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/homepage/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/settings/PreferencesPane.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/settings/PreferencesPane.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/settings/SelectComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/settings/SelectComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/stores/PreferenceStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/stores/PreferenceStore.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1764155930000</updated>
       <workItem from="1764155932130" duration="29334000" />
-      <workItem from="1765798701378" duration="1596000" />
+      <workItem from="1765798701378" duration="9263000" />
     </task>
     <task id="LOCAL-00001" summary="Added webstorm idea files (sorry)">
       <option name="closed" value="true" />
