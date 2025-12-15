@@ -24,9 +24,9 @@ const PreferencesPaneComponent = () => {
   }
 
   return (
-    <div>
-        <div className="settings-popup">
-          <SelectComponent defaultValue="Please Select" options={soundsList} handleSelectChange={handleSelectChange} />
+      <div className="w-75 m-5 preferences-pane">
+        <div className="preferences-popup">
+          <SelectComponent inputName="Victory Sound" defaultValue="Please Select" options={soundsList} handleSelectChange={handleSelectChange} />
           <ToggleComponent label="Spin Sound"/>
         </div>
     </div>

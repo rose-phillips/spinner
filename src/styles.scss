@@ -376,3 +376,15 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
+
+.preferences-wrap{
+    background-color: #595757;
+    .preferences-pane{
+        .preferenceInput{
+            &__select{
+                margin-left:1em;
+            }
+        }
+
+    }
+}

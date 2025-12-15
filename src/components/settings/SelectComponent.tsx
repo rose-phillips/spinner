@@ -6,6 +6,7 @@ type Option = {
 
 type SelectProps = {
     defaultValue: string,
+    inputName: string,
     options: Option[],
     handleSelectChange: ({}) => void
 }
@@ -16,11 +17,12 @@ const SelectComponent = (props: SelectProps) => {
     }
   return (
     <div>
+        <label htmlFor={props.inputName}>{props.inputName} - </label>
       <select
         defaultValue={props.defaultValue}
-        name="victory-sound-select"
-        id="victory-sound-select"
-        
+        name={props.inputName}
+        id={props.inputName}
+        className="preferenceInput__select"
         >
             {/* {props.defaultValue ??
             <option key={props.defaultValue} value={props.defaultValue}>

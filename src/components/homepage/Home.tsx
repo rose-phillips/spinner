@@ -122,10 +122,10 @@ const Home = () => {
         months={months}
         thisYear={thisYear}
         />
-
-        <PreferencesPaneComponent />
-        
       </div>
+        <div className="d-flex flex-direction-column justify-content-center preferences-wrap">
+            <PreferencesPaneComponent />
+        </div>
     </>
   );
 };
