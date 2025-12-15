@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f652f60-0f51-4d13-b835-b7afdc3412e3" name="Changes" comment="Added a random hex generator to the confetti component which can be used instead of the static values. Not hooked up yet but it's added for later configuration" />
+    <list default="true" id="3f652f60-0f51-4d13-b835-b7afdc3412e3" name="Changes" comment="Added a random hex generator to the confetti component which can be used instead of the static values. Not hooked up yet but it's added for later configuration">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/homepage/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/homepage/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/settings/PreferencesPane.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/settings/PreferencesPane.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/settings/SelectComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/settings/SelectComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,24 +28,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="WARN_ABOUT_CRLF" value="false" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "rhomas"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;rhomas&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:rose-phillips/spinner.git",
-    "accountId": "ed2046c9-0b62-4dfd-ba34-63442657d28b"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:rose-phillips/spinner.git&quot;,
+    &quot;accountId&quot;: &quot;ed2046c9-0b62-4dfd-ba34-63442657d28b&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="360uhWsV61n0vMKI3lEZVbSNZ8e" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -52,10 +61,11 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "feature/new__spinner__sounds",
+    "git-widget-placeholder": "feature/settings__page",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/Users/richarddavidson/code/spinner/src/assets/sounds",
     "node.js.detected.package.eslint": "true",
@@ -65,7 +75,7 @@
     "nodejs_package_manager_path": "npm",
     "npm.start.executor": "Run",
     "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "/Users/richarddavidson/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "ts.external.directory.path": "/Users/richarddavidson/code/spinner/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -79,6 +89,7 @@
       <map>
         <entry key="com.intellij.reactbuddy.reactComponents" value="false" />
         <entry key="com.intellij.reactbuddy.reactInspector" value="false" />
+        <entry key="com.intellij.reactbuddy.storybook" value="false" />
       </map>
     </option>
   </component>
@@ -86,6 +97,23 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/assets/sounds" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -101,7 +129,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1764155930000</updated>
-      <workItem from="1764155932130" duration="21628000" />
+      <workItem from="1764155932130" duration="29334000" />
+      <workItem from="1765798701378" duration="1596000" />
     </task>
     <task id="LOCAL-00001" summary="Added webstorm idea files (sorry)">
       <option name="closed" value="true" />
