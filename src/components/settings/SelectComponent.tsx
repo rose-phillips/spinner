@@ -23,6 +23,7 @@ const SelectComponent = (props: SelectProps) => {
         name={props.inputName}
         id={props.inputName}
         className="preferenceInput__select"
+        onChange={props.handleSelectChange}
         >
             {/* {props.defaultValue ??
             <option key={props.defaultValue} value={props.defaultValue}>

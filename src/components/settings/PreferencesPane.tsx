@@ -17,10 +17,20 @@ const PreferencesPaneComponent = () => {
       (state: PreferenceStore) => state.setPreferences
     );
 
+    function camelCase(str:string) {
+        // Using replace method with regEx
+        return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+            return index == 0 ? word.toLowerCase() : word.toUpperCase();
+        }).replace(/\s+/g, '');
+    }
+
   const handleSelectChange = (e:any) => {
     e.preventDefault();
+    // grab the value of the select
     const preference = e.target.value
-    setPreferences(preference[0]);
+      // create a normalised keyname with the select field name
+    const keyName = camelCase(e.target.name)
+    setPreferences({[keyName]: [{value: preference}]});
   }
 
   return (

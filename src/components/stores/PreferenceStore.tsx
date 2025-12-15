@@ -17,15 +17,14 @@ export interface Preferences {
 }
 
 export interface PreferenceStore {
-  preferences: Preferences[];
-  setPreferences: (newPreferences: Preferences[]) => void;
+  preferences:  { [key: string]: any };
+  setPreferences: (newPreferences: { [key: string]: any }) => void;
 }
 
-const initialPreferences = [
-   { name: "string",
-  value: "string",},
-     { name: "string",
-  value: "string",}]
+const initialPreferences =[
+    "preference", { value: "string",}
+]
+
 
 export const usePreferenceStore = create<PreferenceStore>()(
   persist(
