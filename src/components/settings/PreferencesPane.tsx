@@ -1,28 +1,24 @@
 import SelectComponent from "./SelectComponent";
 import ToggleComponent from "./ToggleComponent";
 
+import {camelCase} from "../../common/helpers/strings";
+
+import soundList from '../SoundFiles.json';
+
 import { PreferenceStore, usePreferenceStore, Preferences } from "../stores/PreferenceStore";
 
 
 const PreferencesPaneComponent = () => {
 
-    const soundsList = [
-    { value: "pokemonSound", name: "Pokemon", id: "Pokemon" },
-    { value: "kirbySound", name: "Kirby", id: "kirbySound" },
-    { value: "ffixSound", name: "FFIX", id: "ffixSound" },
-    { value: "marioSound", name: "Mario", id: "marioSound" },
-  ];
+    console.log('preference store is ', usePreferenceStore)
+
+    const victorySoundChoiceFromPreferences = usePreferenceStore((state: PreferenceStore) => (state.preferences.victorySound === undefined ? "/sounds/kirbys-victory-dance.mp3" : state.preferences.victorySound[0].value));
 
   const setPreferences = usePreferenceStore(
       (state: PreferenceStore) => state.setPreferences
     );
 
-    function camelCase(str:string) {
-        // Using replace method with regEx
-        return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
-            return index == 0 ? word.toLowerCase() : word.toUpperCase();
-        }).replace(/\s+/g, '');
-    }
+
 
   const handleSelectChange = (e:any) => {
     e.preventDefault();
@@ -36,7 +32,13 @@ const PreferencesPaneComponent = () => {
   return (
       <div className="w-75 m-5 preferences-pane">
         <div className="preferences-popup">
-          <SelectComponent inputName="Victory Sound" defaultValue="Please Select" options={soundsList} handleSelectChange={handleSelectChange} />
+          <SelectComponent
+              inputName="Victory Sound"
+              defaultValue="Please Select"
+              options={soundList.victorySounds}
+              handleSelectChange={handleSelectChange}
+              preferenceChoice={victorySoundChoiceFromPreferences}
+          />
           <ToggleComponent label="Spin Sound"/>
         </div>
     </div>

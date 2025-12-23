@@ -4,22 +4,22 @@
             {
                 "id": "1",
                 "name": "Kirby",
-                "value": "../../assets/sounds/kirbys-victory-dance.mp3"
+              "value": "/sounds/kirbys-victory-dance.mp3"
             },
             {
                 "id": "2",
                 "name": "Pokemon",
-                "value": "../../assets/sounds/pokemon.mp3"
+                "value": "/sounds/pokemon.mp3"
             },
             {
                 "id": "3",
                 "name": "FFIX",
-                "value": "../../assets/sounds/ffix-victory-fanfare-ringtone-download.mp3"
+                "value": "/sounds/ffix-victory-fanfare-ringtone-download.mp3"
             },
             {
                 "id": "4",
                 "name": "SMB",
-                "value": "../../assets/sounds/victory-mario-series-hq-super-smash-bros.mp3"
+                "value": "/sounds/victory-mario-series-hq-super-smash-bros.mp3"
             }
         ]
     ,
@@ -27,12 +27,12 @@
         {
             "id": "1",
             "name": "Ticker",
-            "value": "../../assets/sounds/spin-clicks.mp3"
+            "value": "/sounds/spin-clicks.mp3"
         },
         {
             "id": "2",
             "name": "Funhaus",
-            "value": "../../assets/sounds/spin-clicks.mp3"
+            "value": "/sounds/spin-clicks.mp3"
         }
     ]
 }
