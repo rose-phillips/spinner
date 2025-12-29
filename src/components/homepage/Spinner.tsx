@@ -42,7 +42,7 @@ const Spinner = ({
     setMustSpin(true);
     setTimeout(() => {
       playSound(spinClicksRef);
-    }, 1000);
+    }, 10);
   };
 
   const spinClicksRef = useRef<HTMLAudioElement>(null);
@@ -50,7 +50,7 @@ const Spinner = ({
 
   const playSound = (sound: React.RefObject<HTMLAudioElement>) => {
     if (sound.current) {
-      sound.current.volume = 0.15;
+      sound.current.volume = 0.45;
       sound.current.play();
     }
   };
@@ -77,13 +77,13 @@ const Spinner = ({
         radiusLineWidth={2}
         fontFamily="Roboto Mono"
         fontWeight={200}
-        spinDuration={0.4}
+        spinDuration={0.36}
       />
       <button className="spin-button" onClick={handleSpinClick}>
         SPIN
       </button>
-      <audio id="victory-sound" src={soundChoice.sound} ref={levelUpSoundRef} />
-      <audio id="spin-sound-2" src={spinClicks} ref={spinClicksRef}></audio>
+      {/*<audio id="victory-sound" src={soundChoice.sound} ref={levelUpSoundRef} />*/}
+      {/*<audio id="spin-sound-2" src={spinClicks} ref={spinClicksRef}></audio>*/}
     </div>
   );
 };

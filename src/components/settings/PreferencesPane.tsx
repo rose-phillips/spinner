@@ -12,7 +12,9 @@ const PreferencesPaneComponent = () => {
 
     console.log('preference store is ', usePreferenceStore)
 
+    // default the sound prefs to the first sound in the list if none are set
     const victorySoundChoiceFromPreferences = usePreferenceStore((state: PreferenceStore) => (state.preferences.victorySound === undefined ? "/sounds/kirbys-victory-dance.mp3" : state.preferences.victorySound[0].value));
+    const spinnerSoundChoiceFromPreferences = usePreferenceStore((state: PreferenceStore) => (state.preferences.spinnerSound === undefined ? "/sounds/spin-clicks.mp3" : state.preferences.spinnerSound[0].value));
 
   const setPreferences = usePreferenceStore(
       (state: PreferenceStore) => state.setPreferences
@@ -39,6 +41,13 @@ const PreferencesPaneComponent = () => {
               handleSelectChange={handleSelectChange}
               preferenceChoice={victorySoundChoiceFromPreferences}
           />
+            <SelectComponent
+                inputName="Spinner Sound"
+                defaultValue="Please Select"
+                options={soundList.spinnerSounds}
+                handleSelectChange={handleSelectChange}
+                preferenceChoice={spinnerSoundChoiceFromPreferences}
+            />
           <ToggleComponent label="Spin Sound"/>
         </div>
     </div>

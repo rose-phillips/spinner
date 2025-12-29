@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3f652f60-0f51-4d13-b835-b7afdc3412e3" name="Changes" comment="Added a random hex generator to the confetti component which can be used instead of the static values. Not hooked up yet but it's added for later configuration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/settings/PlayButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/settings/PlayButton.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +68,7 @@
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "feature/settings__page",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/richarddavidson/code/spinner/src/assets",
+    "last_opened_file_path": "/Users/richarddavidson/code/spinner/public/sounds",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -97,6 +96,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/sounds" />
       <recent name="$PROJECT_DIR$/src/assets" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/assets/sounds" />
