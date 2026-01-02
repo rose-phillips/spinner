@@ -26,7 +26,23 @@ const Home = () => {
   });
 
   const thisYear = new Date().getFullYear()
+  const allYears: string[] = [];
 
+  const checkYears = () => {
+    list.forEach((item) => {
+      const itemContainsThisYear =  thisYear in item.allScores;
+      if (!itemContainsThisYear) {
+        item.allScores[thisYear] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      };
+      for (const key in item.allScores) {
+        const alreadyThere = allYears.includes(key);
+        if (!alreadyThere) allYears.push(key)     
+      }
+    })
+  }
+ 
+checkYears();
+ 
   const [open, setOpen] = useState<boolean>(false);
   const [winner, setWinner] = useState<Item>({
     id: "id",
@@ -111,15 +127,20 @@ const Home = () => {
         />
         <Confetti isExploding={isExploding} />
       </div>
-      <div className="d-flex flex-direction-column justify-content-center">
+      <div className="d-flex flex-column-reverse align-items-center">
+
+        {allYears.map((year) => (     
         <Table 
+        key={year}
         list={list} 
         setList={setList} 
         highestPerMonth={highestPerMonth} 
         setHighestPerMonth={setHighestPerMonth}
         months={months}
-        thisYear={thisYear}
-        />
+        thisYear={Number(year)}
+        />)
+        )}
+
       </div>
     </>
   );

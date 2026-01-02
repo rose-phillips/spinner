@@ -40,12 +40,6 @@ export default function Table(
             <td
               key={item.option}
               className="first-td"
-              style={{
-                color:
-                  item.score === highestPerMonth[new Date().getMonth()]
-                    ? "chartreuse"
-                    : "",
-              }}
             >
               {item.option}
             </td>
