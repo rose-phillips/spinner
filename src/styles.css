@@ -4,26 +4,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
 :root {
-  --dark-grey: #464646;
-  --medium-grey: #acacac;
-  --light-grey: #efefef;
-  --green: chartreuse;
-  --red: #e24a2b;
+  /* --color-100: black;
+  --color-200: var(--color-200);;
+  --color-300: #acacac;
+  --color-400: #efefef;
+  --color-500: white;
+  --primary: var(--primary);;
+  --secondary: #e24a2b; */
+  --color-100: #caf0f8;
+  --color-200: #90e0ef;
+  --color-300: #023e8a;
+  --color-400: #023e8a;
+  --color-500: #03045e;
+  --primary: #03045e;
+  --secondary: #023e8a;
 }
 
 * {
   font-weight: 300;
 }
 
-.green {
-  color: var(--green);
+.primary {
+  color: var(--primary);
 }
 
 body {
-  background: #000;
+  background: var(--color-100);
   margin: 0;
   font-family: "Roboto Mono";
-  color: white;
+  color: var(--color-500);
 }
 
 .light-and-small {
@@ -32,7 +41,7 @@ body {
 }
 
 header {
-  color: var(--green);
+  color: var(--primary);
   padding: 0.3rem 4rem;
   font-size: 1rem;
   margin-bottom: 3rem;
@@ -50,14 +59,14 @@ header {
 
 header h1 {
   font-weight: 100;
-  color: var(--green);
+  color: var(--primary);
   text-decoration: none;
 }
 
 .sound-select-container {
   display: flex;
   flex-direction: column;
-  color: white;
+  color:  var(--color-500);
   align-items: center;
   font-size: 12px;
   gap: 10px;
@@ -66,7 +75,7 @@ header h1 {
 select {
   padding: 8px;
   border: none;
-  background-color: var(--light-grey);
+  background-color: var(--color-400);
   font-size: 12px;
 }
 
@@ -74,18 +83,18 @@ select {
   padding: 0;
   padding-bottom: 3px;
   margin-left: 10px;
-  background-color: var(--medium-grey);
+  background-color: var(--color-300);
   width: 30px; 
   height: 30px; 
   border-radius: 50%; 
-  background-color:var(--medium-grey); 
+  background-color:var(--color-300); 
   font-size: 16px;
 }
 
 .input-form {
   margin-right: 4rem;
   padding: 2rem;
-  background: var(--dark-grey);
+  background: var(--color-200);
 }
 
 input {
@@ -121,7 +130,7 @@ input {
   width: 150px;
   padding: 10px 15px;
   margin: 0;
-  background-color: var(--dark-grey);
+  background-color: var(--color-200);
 }
 .sound-choice .checkmark {
   left: 15px;
@@ -156,9 +165,9 @@ input {
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked~.checkmark {
-  background-color: black;
+  background-color: var(--color-100);
   border-radius: 20px;
-  border: 1px solid black;
+  border: 1px solid var(--color-100);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -179,7 +188,7 @@ input {
   top: 4px;
   width: 6px;
   height: 11px;
-  border: solid chartreuse;
+  border: solid var(--primary);;
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -190,13 +199,15 @@ button {
   border: none;
   padding: 8px 20px;
   margin: 5px;
+  background-color: var(--color-400);
+  color: var(--color-100)
 }
 
 .delete-button {
   padding: 0 5px;
   border: none;
   background-color: transparent;
-  color: #e24a2b;
+  color: var(--secondary);
 
   border-radius: 20px;
 }
@@ -213,7 +224,7 @@ button {
   z-index: 99;
   border-radius: 50%;
   background-color: transparent;
-  color: chartreuse;
+  color: var(--primary);;
   font-size: 24px;
 }
 
@@ -223,12 +234,12 @@ button {
 
 .winner-popup {
   padding: 10px 15px;
-  background-color: white;
-  color: black;
+  background-color:  var(--color-500);
+  color: var(--color-100);
 }
 
 .winner-popup-inner-content {
-  background-color: white;
+  background-color:  var(--color-500);
   border: none;
   margin: 0 auto;
   padding-bottom: 25px;
@@ -254,11 +265,11 @@ button {
 }
 
 table thead {
-  background: #464646;
+  background: var(--color-200);;
 }
 
 td {
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid var(--color-200);;
   padding: 5px;
   text-align: center;
 }
@@ -303,7 +314,7 @@ dialog::backdrop {
   }
 
   input {
-    border: 1px dotted black;
+    border: 1px dotted var(--color-100);
     width: 50px;
     margin-top: 5px;
   }

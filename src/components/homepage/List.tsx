@@ -52,7 +52,7 @@ function List({
 
   const getItemNameForList = (item: Item) => {
     if (item.allScores[thisYear][new Date().getMonth()] === highestScoreThisMonth) {
-      return <span className="green">
+      return <span className="primary">
         {item.option}
         <img className="greggs-logo" src={greggsLogo} alt="greggs logo" />
         </span>

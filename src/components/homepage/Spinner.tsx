@@ -69,7 +69,7 @@ const Spinner = ({
           setOpen(true);
           setIsExploding(true);
         }}
-        backgroundColors={["lightgrey", "grey", "darkgrey"]}
+        backgroundColors={["white", "lightgrey", "grey", "darkgrey"]}
         outerBorderWidth={0}
         innerBorderColor="black"
         innerBorderWidth={50}
