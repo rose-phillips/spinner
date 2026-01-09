@@ -6,11 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="3f652f60-0f51-4d13-b835-b7afdc3412e3" name="Changes" comment="Added a random hex generator to the confetti component which can be used instead of the static values. Not hooked up yet but it's added for later configuration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/settings/PreferencesPane.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/settings/PreferencesPane.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/stores/PreferenceStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/stores/PreferenceStore.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="61" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -40,6 +46,10 @@
     &quot;accountId&quot;: &quot;ed2046c9-0b62-4dfd-ba34-63442657d28b&quot;
   }
 }</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -61,12 +71,15 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "ReactCreateComponentLastSelected": "arrowFunctionComponent",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "feature/settings__page",
+    "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/Users/richarddavidson/code/spinner/public/sounds",
     "node.js.detected.package.eslint": "true",
@@ -75,6 +88,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.start.executor": "Run",
+    "settings.editor.selected.configurable": "editor.preferences.appearance",
     "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "/Users/richarddavidson/code/spinner/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -93,6 +107,13 @@
         <entry key="com.intellij.reactbuddy.storybook" value="false" />
       </map>
     </option>
+  </component>
+  <component name="RecapSpentCounter">
+    <option name="endsOfQuotaMs" value="1770105613008" />
+    <option name="spentUsd" value="0.02847985" />
+  </component>
+  <component name="RecapUselessUpdatesCounter">
+    <option name="suspendCountdown" value="0" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -125,7 +146,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.27397.92" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.29346.242" />
       </set>
     </attachedChunks>
   </component>
@@ -139,6 +160,8 @@
       <workItem from="1764155932130" duration="29334000" />
       <workItem from="1765798701378" duration="9821000" />
       <workItem from="1765875815220" duration="6500000" />
+      <workItem from="1767885726583" duration="356000" />
+      <workItem from="1767887736431" duration="11418000" />
     </task>
     <task id="LOCAL-00001" summary="Added webstorm idea files (sorry)">
       <option name="closed" value="true" />

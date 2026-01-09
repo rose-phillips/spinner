@@ -1,26 +1,22 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
-export interface Preferences {
-  name: string;
-  value: string;
-}
-
 export interface PreferenceStore {
-  preferences:  { [key: string]: any };
-  setPreferences: (newPreferences: { [key: string]: any }) => void;
+  spinnerSound: string | undefined;
+  victorySound: string | undefined;
+  setSpinnerSound: (newSound: string) => void;
+  setVictorySound: (newSound: string) => void;
 }
-
-const initialPreferences =[
-    "preference", { value: "string",}
-]
 
 export const usePreferenceStore = create<PreferenceStore>()(
   persist(
     (set) => ({
-      preferences: initialPreferences,
-      setPreferences: (newPreferences) =>
-        set({ preferences: newPreferences }),
+        spinnerSound: undefined,
+        victorySound: undefined,
+    setSpinnerSound: (spinnerSound) =>
+        set({spinnerSound}),
+    setVictorySound: (victorySound) =>
+        set({victorySound}),
     }),
     {
       name: "SpinnerApp.preferences",
