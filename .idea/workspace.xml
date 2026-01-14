@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f652f60-0f51-4d13-b835-b7afdc3412e3" name="Changes" comment="Added a random hex generator to the confetti component which can be used instead of the static values. Not hooked up yet but it's added for later configuration">
+    <list default="true" id="3f652f60-0f51-4d13-b835-b7afdc3412e3" name="Changes" comment="Preferences are now saved correctly upon selecting them in the preferences pane. checkboxes added to autoplay the relevant sounds.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/homepage/Spinner.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/homepage/Spinner.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/settings/PreferencesPane.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/settings/PreferencesPane.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/settings/SelectComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/settings/SelectComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/settings/ToggleComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/settings/ToggleComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/stores/PreferenceStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/stores/PreferenceStore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +160,7 @@
       <workItem from="1765798701378" duration="9821000" />
       <workItem from="1765875815220" duration="6500000" />
       <workItem from="1767885726583" duration="356000" />
-      <workItem from="1767887736431" duration="26947000" />
+      <workItem from="1767887736431" duration="27229000" />
     </task>
     <task id="LOCAL-00001" summary="Added webstorm idea files (sorry)">
       <option name="closed" value="true" />
@@ -198,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764168575464</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Preferences are now saved correctly upon selecting them in the preferences pane. checkboxes added to autoplay the relevant sounds.">
+      <option name="closed" value="true" />
+      <created>1768399363603</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1768399363603</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +224,7 @@
     <MESSAGE value="Scrappy commit of a change in 'clicker' sound - code needs work" />
     <MESSAGE value="Added a hardcoded ability to turn off the autoplay of the spinner sounds and the victory sounds. Added a autoplay checkbox for the future&#10;&#10;Also tweaked the spin duration to sync up with the end of the new spin sound so the confetti triggers in time with the music" />
     <MESSAGE value="Added a random hex generator to the confetti component which can be used instead of the static values. Not hooked up yet but it's added for later configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a random hex generator to the confetti component which can be used instead of the static values. Not hooked up yet but it's added for later configuration" />
+    <MESSAGE value="Preferences are now saved correctly upon selecting them in the preferences pane. checkboxes added to autoplay the relevant sounds." />
+    <option name="LAST_COMMIT_MESSAGE" value="Preferences are now saved correctly upon selecting them in the preferences pane. checkboxes added to autoplay the relevant sounds." />
   </component>
 </project>
