@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Wheel } from "react-custom-roulette";
 import type { Item } from "./Home";
-import { SoundStore, useSoundStore } from "../stores/SoundStore";
-const spinClicks = require("../../assets/sounds/spin-clicks.mp3");
+import {usePreferenceStore} from "../stores/PreferenceStore";
 
 const Spinner = ({
   list,
@@ -17,9 +16,6 @@ const Spinner = ({
   setWinner: React.Dispatch<React.SetStateAction<Item>>;
   setIsExploding: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  //
-  const soundChoice = useSoundStore((state: SoundStore) => state.soundChoice);
-  //
   const [includeOnWheel, setIncludeOnWheel] = useState<Item[]>([]);
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
@@ -41,17 +37,21 @@ const Spinner = ({
     setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
     setTimeout(() => {
-      playSound(spinClicksRef);
-    }, 1000);
+      playSound(spinnerSoundRef, spinnerAutoplay);
+    }, 10);
   };
 
-  const spinClicksRef = useRef<HTMLAudioElement>(null);
-  const levelUpSoundRef = useRef<HTMLAudioElement>(null);
+  const {victorySound, spinnerSound, spinnerAutoplay, victorySoundAutoplay} = usePreferenceStore(preferences => preferences);
 
-  const playSound = (sound: React.RefObject<HTMLAudioElement>) => {
+  const spinnerSoundRef = useRef<HTMLAudioElement>(null);
+  const victorySoundRef = useRef<HTMLAudioElement>(null);
+
+  const playSound = (sound: React.RefObject<HTMLAudioElement>, autoplay:boolean) => {
     if (sound.current) {
-      sound.current.volume = 0.15;
-      sound.current.play();
+      if (autoplay) {
+          sound.current.volume = 0.45;
+          sound.current.play();
+      }
     }
   };
   //
@@ -63,7 +63,7 @@ const Spinner = ({
         prizeNumber={prizeNumber}
         data={includeOnWheel.length > 0 ? includeOnWheel : tempList}
         onStopSpinning={() => {
-          playSound(levelUpSoundRef);
+          playSound(victorySoundRef,victorySoundAutoplay);
           setWinner(includeOnWheel[prizeNumber]);
           setMustSpin(false);
           setOpen(true);
@@ -77,13 +77,21 @@ const Spinner = ({
         radiusLineWidth={2}
         fontFamily="Roboto Mono"
         fontWeight={200}
-        spinDuration={0.4}
+        spinDuration={0.36}
       />
       <button className="spin-button" onClick={handleSpinClick}>
         SPIN
       </button>
-      <audio id="victory-sound" src={soundChoice.sound} ref={levelUpSoundRef} />
-      <audio id="spin-sound-2" src={spinClicks} ref={spinClicksRef}></audio>
+      <audio
+          id={"victorySound-choice"}
+          src={victorySound}
+          ref={victorySoundRef}
+      ></audio>
+      <audio
+          id={"spinnerSound-choice"}
+          src={spinnerSound}
+          ref={spinnerSoundRef}
+      ></audio>
     </div>
   );
 };

@@ -15,12 +15,6 @@ type SelectProps = {
 }
 const SelectComponent = (props: SelectProps) => {
 
-
-    const handleChange = () => {
-
-    }
-
-    console.log("Select comp - current pref is ",props.preferenceChoice);
   return (
     <div>
         <label htmlFor={props.inputName}>{props.inputName} - </label>
