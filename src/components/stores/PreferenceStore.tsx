@@ -4,8 +4,12 @@ import { persist, createJSONStorage } from "zustand/middleware";
 export interface PreferenceStore {
   spinnerSound: string | undefined;
   victorySound: string | undefined;
+  spinnerAutoplay: boolean;
+  victorySoundAutoplay: boolean;
   setSpinnerSound: (newSound: string) => void;
   setVictorySound: (newSound: string) => void;
+  setSpinnerAutoplay: (newSound: boolean) => void;
+  setVictorySoundAutoplay: (newSound: boolean) => void;
 }
 
 export const usePreferenceStore = create<PreferenceStore>()(
@@ -13,10 +17,16 @@ export const usePreferenceStore = create<PreferenceStore>()(
     (set) => ({
         spinnerSound: undefined,
         victorySound: undefined,
+        spinnerAutoplay: false,
+        victorySoundAutoplay: false,
     setSpinnerSound: (spinnerSound) =>
         set({spinnerSound}),
     setVictorySound: (victorySound) =>
         set({victorySound}),
+    setSpinnerAutoplay: (spinnerAutoplay) =>
+        set({spinnerAutoplay}),
+    setVictorySoundAutoplay: (victorySoundAutoplay) =>
+        set({victorySoundAutoplay}),
     }),
     {
       name: "SpinnerApp.preferences",

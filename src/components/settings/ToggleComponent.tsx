@@ -1,14 +1,18 @@
 type ToggleProps = {
     label: string,
+    name: string,
+    handleChange: ({}) => void
+    preferenceChoice: boolean
 }
 const ToggleComponent = (props: ToggleProps) => {
   return (
     <div className="toggle">
-     <label className="switch">
-      {props.label}
-  <input type="checkbox" />
-  <span className="slider"></span>
-</label>
+        <label htmlFor={props.name}>{props.label}</label>
+        <input type="checkbox" id={props.name} onChange={props.handleChange} checked={props.preferenceChoice}/>
+
+        {/* <span className="switch">*/}
+        {/*     <span className="slider"></span>*/}
+        {/*</span>*/}
     </div>
   );
 };

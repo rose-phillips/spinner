@@ -9,7 +9,16 @@ import { usePreferenceStore } from "../stores/PreferenceStore";
 const PreferencesPaneComponent = () => {
 
     console.log('preference store is ', usePreferenceStore)
-    const {setVictorySound,setSpinnerSound,victorySound, spinnerSound} = usePreferenceStore(preferences => preferences);
+    const {
+        setVictorySound,
+        setSpinnerSound,
+        setSpinnerAutoplay,
+        setVictorySoundAutoplay,
+        victorySound,
+        spinnerSound,
+        spinnerAutoplay,
+        victorySoundAutoplay
+    } = usePreferenceStore(preferences => preferences);
 
     // default the sound prefs to the first sound in the list if none are set
 
@@ -24,6 +33,18 @@ const PreferencesPaneComponent = () => {
         // grab the value of the select
         const preference = e.target.value
         setSpinnerSound(preference);
+    }
+    const handleSpinnerAutoplayChange = (e:any) => {
+        e.preventDefault();
+        // grab the value of the select
+        const preference = e.target.checked
+        setSpinnerAutoplay(preference);
+    }
+    const handleVictorySoundAutoplayChange = (e:any) => {
+        e.preventDefault();
+        // grab the value of the select
+        const preference = e.target.checked
+        setVictorySoundAutoplay(preference);
     }
 
   return (
@@ -43,7 +64,8 @@ const PreferencesPaneComponent = () => {
                 handleSelectChange={handleSpinnerSoundChange}
                 preferenceChoice={spinnerSound?? soundList.spinnerSounds[0].value}
             />
-          <ToggleComponent label="Spin Sound"/>
+          <ToggleComponent label="Auto play spin Sound" name="spinnerSoundToggle" handleChange={handleSpinnerAutoplayChange} preferenceChoice={spinnerAutoplay?? false}/>
+          <ToggleComponent label="Auto play victory Sound" name="victorySoundToggle" handleChange={handleVictorySoundAutoplayChange} preferenceChoice={victorySoundAutoplay?? false}/>
         </div>
     </div>
   );
