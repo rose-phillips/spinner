@@ -1,11 +1,10 @@
 import SelectComponent from "./SelectComponent";
 import ToggleComponent from "./ToggleComponent";
 
-import {camelCase} from "../../common/helpers/strings";
-
 import soundList from '../SoundFiles.json';
 
 import { usePreferenceStore } from "../stores/PreferenceStore";
+import RangeComponent from "./RangeComponent";
 
 
 const PreferencesPaneComponent = () => {
@@ -16,10 +15,12 @@ const PreferencesPaneComponent = () => {
         setSpinnerSound,
         setSpinnerAutoplay,
         setVictorySoundAutoplay,
+        setConfettiCount,
         victorySound,
         spinnerSound,
         spinnerAutoplay,
-        victorySoundAutoplay
+        victorySoundAutoplay,
+        confettiCount
     } = usePreferenceStore(preferences => preferences);
 
     // default the sound prefs to the first sound in the list if none are set
@@ -47,6 +48,12 @@ const PreferencesPaneComponent = () => {
         // grab the value of the select
         const preference = e.target.checked
         setVictorySoundAutoplay(preference);
+    }
+    const handleConfettiCountChange = (e:any) => {
+        e.preventDefault();
+        // grab the value of the select
+        const preference = Number(e.target.value)
+        setConfettiCount(preference);
     }
 
     const modal = document.querySelector('dialog');
@@ -84,8 +91,9 @@ const PreferencesPaneComponent = () => {
                 handleSelectChange={handleSpinnerSoundChange}
                 preferenceChoice={spinnerSound?? soundList.spinnerSounds[0].value}
             />
-          <ToggleComponent label="Auto play spin Sound" name="spinnerSoundToggle" handleChange={handleSpinnerAutoplayChange} preferenceChoice={spinnerAutoplay?? false}/>
-          <ToggleComponent label="Auto play victory Sound" name="victorySoundToggle" handleChange={handleVictorySoundAutoplayChange} preferenceChoice={victorySoundAutoplay?? false}/>
+            <ToggleComponent label="Auto play spin Sound" name="spinnerSoundToggle" handleChange={handleSpinnerAutoplayChange} preferenceChoice={spinnerAutoplay?? false}/>
+            <ToggleComponent label="Auto play victory Sound" name="victorySoundToggle" handleChange={handleVictorySoundAutoplayChange} preferenceChoice={victorySoundAutoplay?? false}/>
+            <RangeComponent label="Confetti Count" name="confettiCounter" handleChange={handleConfettiCountChange} preferenceChoice={confettiCount ?? 1} />
         </div>
         </dialog>
     </>

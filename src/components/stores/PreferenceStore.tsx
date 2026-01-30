@@ -6,10 +6,12 @@ export interface PreferenceStore {
   victorySound: string | undefined;
   spinnerAutoplay: boolean;
   victorySoundAutoplay: boolean;
+  confettiCount: number;
   setSpinnerSound: (newSound: string) => void;
   setVictorySound: (newSound: string) => void;
   setSpinnerAutoplay: (newSound: boolean) => void;
   setVictorySoundAutoplay: (newSound: boolean) => void;
+  setConfettiCount: (newSound: number) => void;
 }
 
 export const usePreferenceStore = create<PreferenceStore>()(
@@ -19,6 +21,7 @@ export const usePreferenceStore = create<PreferenceStore>()(
         victorySound: undefined,
         spinnerAutoplay: false,
         victorySoundAutoplay: false,
+        confettiCount: 1,
     setSpinnerSound: (spinnerSound) =>
         set({spinnerSound}),
     setVictorySound: (victorySound) =>
@@ -27,6 +30,8 @@ export const usePreferenceStore = create<PreferenceStore>()(
         set({spinnerAutoplay}),
     setVictorySoundAutoplay: (victorySoundAutoplay) =>
         set({victorySoundAutoplay}),
+      setConfettiCount: (confettiCount) =>
+        set({confettiCount}),
     }),
     {
       name: "SpinnerApp.preferences",
