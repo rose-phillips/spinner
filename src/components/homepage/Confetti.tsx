@@ -1,20 +1,16 @@
 import ConfettiExplosion from "react-confetti-explosion";
+import {randomHexColorCode} from "../../common/helpers/general";
+import {usePreferenceStore} from "../stores/PreferenceStore";
 
 const Confetti = ({ isExploding }: { isExploding: boolean }) => {
+
+  const { confettiCount } = usePreferenceStore(preferences => preferences);
+
   return (
     <div className="confetti">
       {isExploding && (
         <ConfettiExplosion
-          colors={[
-            "#10002b",
-            "#240046",
-            "#3c096c",
-            "#5a189a",
-            "#7b2cbf",
-            "#9d4edd",
-            "#c77dff",
-            "#e0aaff",
-          ]}
+          colors={randomHexColorCode(confettiCount)}
           particleSize={25}
           particleCount={400}
           force={1}

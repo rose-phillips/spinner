@@ -1,0 +1,38 @@
+{
+    "victorySounds": 
+        [
+            {
+                "id": "1",
+                "name": "Kirby",
+              "value": "/sounds/kirbys-victory-dance.mp3"
+            },
+            {
+                "id": "2",
+                "name": "Pokemon",
+                "value": "/sounds/pokemon.mp3"
+            },
+            {
+                "id": "3",
+                "name": "FFIX",
+                "value": "/sounds/ffix-victory-fanfare-ringtone-download.mp3"
+            },
+            {
+                "id": "4",
+                "name": "SMB",
+                "value": "/sounds/victory-mario-series-hq-super-smash-bros.mp3"
+            }
+        ]
+    ,
+    "spinnerSounds": [
+        {
+            "id": "1",
+            "name": "Ticker",
+            "value": "/sounds/spin-clicks.mp3"
+        },
+        {
+            "id": "2",
+            "name": "Funhaus",
+            "value": "/sounds/thewheelhausaudio.mp3"
+        }
+    ]
+}

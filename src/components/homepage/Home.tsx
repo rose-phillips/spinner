@@ -4,6 +4,7 @@ import Spinner from "./Spinner";
 import WinnerPopup from "./WinnerPopup";
 import Confetti from "./Confetti";
 import Table from "../results table/Table";
+import PreferencesPaneComponent from "../settings/PreferencesPane";
 
 export interface Scores {
   [year: number]: number[],
@@ -72,6 +73,7 @@ checkYears();
       "Dec",
     ];
   //
+
   useEffect(() => {
     //
     // creates array of everyone's score for the month of the index number
@@ -142,6 +144,9 @@ checkYears();
         )}
 
       </div>
+        <div className="d-flex flex-direction-column justify-content-center preferences-wrap">
+            <PreferencesPaneComponent />
+        </div>
     </>
   );
 };
