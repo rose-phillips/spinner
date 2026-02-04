@@ -10,7 +10,7 @@ type SelectProps = {
     defaultValue: string,
     inputName: string,
     options: Option[],
-    handleSelectChange: ({}) => void
+    handleSelectChange: (event: React.ChangeEvent<HTMLSelectElement>) => void
     preferenceChoice: string
 }
 const SelectComponent = (props: SelectProps) => {

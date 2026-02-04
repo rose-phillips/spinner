@@ -1,7 +1,7 @@
 type RangeProps = {
     label: string,
     name: string,
-    handleChange: ({}) => void
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
     preferenceChoice: number
 }
 const RangeComponent = (props: RangeProps) => {

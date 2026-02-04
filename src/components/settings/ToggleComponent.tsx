@@ -1,7 +1,7 @@
 type ToggleProps = {
     label: string,
     name: string,
-    handleChange: ({}) => void
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
     preferenceChoice: boolean
 }
 const ToggleComponent = (props: ToggleProps) => {
