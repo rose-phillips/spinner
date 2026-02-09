@@ -5,6 +5,8 @@ import WinnerPopup from "./WinnerPopup";
 import Confetti from "./Confetti";
 import Table from "../results table/Table";
 import PreferencesPaneComponent from "../settings/PreferencesPane";
+import {usePreferenceStore} from "../stores/PreferenceStore";
+import {bootstrapLocalStorage} from "../../common/helpers/general";
 
 export interface Scores {
   [year: number]: number[],
@@ -101,6 +103,10 @@ checkYears();
 
   }, [list,thisYear]);
   //
+
+  // check to see if there are any sounds set in the preferences
+  // if not, set some defaults
+  bootstrapLocalStorage(usePreferenceStore());
 
   return (
     <>

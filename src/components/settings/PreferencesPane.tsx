@@ -9,7 +9,6 @@ import RangeComponent from "./RangeComponent";
 
 const PreferencesPaneComponent = () => {
 
-    console.log('preference store is ', usePreferenceStore)
     const {
         setVictorySound,
         setSpinnerSound,
