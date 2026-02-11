@@ -28,7 +28,7 @@
             "id": "1",
             "name": "Ticker",
             "value": "/sounds/spin-clicks.mp3",
-            "timeout": 90
+            "timeout": 300
         },
         {
             "id": "2",
