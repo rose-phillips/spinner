@@ -27,7 +27,7 @@ export const randomHexColorCode = (length: number = 3) => {
 export const bootstrapLocalStorage = (PreferencesStore: PreferenceStore) => {
     if(PreferencesStore.spinnerSound === undefined && PreferencesStore.victorySound === undefined) {
         // set a default sound if none is set
-        PreferencesStore.setSpinnerSound(soundList.spinnerSounds[0].value) // clicker
+        PreferencesStore.setSpinnerSound({value: soundList.spinnerSounds[0].value, timeout: soundList.spinnerSounds[0].timeout}) // clicker
         PreferencesStore.setVictorySound(soundList.victorySounds[0].value) // kirby
         PreferencesStore.setSpinnerAutoplay(true)
         PreferencesStore.setVictorySoundAutoplay(true)

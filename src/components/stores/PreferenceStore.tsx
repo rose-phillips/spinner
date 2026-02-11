@@ -1,17 +1,24 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
+export interface SpinnerSoundChoice {
+	value: string;
+	timeout?: number;
+}
+
 export interface PreferenceStore {
-  spinnerSound: string | undefined;
+  spinnerSound: SpinnerSoundChoice | undefined;
   victorySound: string | undefined;
   spinnerAutoplay: boolean;
   victorySoundAutoplay: boolean;
   confettiCount: number;
-  setSpinnerSound: (newSound: string) => void;
+  lastWinner: string | undefined;
+  setSpinnerSound: (newSound: SpinnerSoundChoice) => void;
   setVictorySound: (newSound: string) => void;
   setSpinnerAutoplay: (newSound: boolean) => void;
   setVictorySoundAutoplay: (newSound: boolean) => void;
   setConfettiCount: (newSound: number) => void;
+  setLastWinner: (newWinner: string) => void;
 }
 
 export const usePreferenceStore = create<PreferenceStore>()(
@@ -22,6 +29,7 @@ export const usePreferenceStore = create<PreferenceStore>()(
         spinnerAutoplay: false,
         victorySoundAutoplay: false,
         confettiCount: 1,
+        lastWinner: undefined,
     setSpinnerSound: (spinnerSound) =>
         set({spinnerSound}),
     setVictorySound: (victorySound) =>
@@ -32,6 +40,8 @@ export const usePreferenceStore = create<PreferenceStore>()(
         set({victorySoundAutoplay}),
       setConfettiCount: (confettiCount) =>
         set({confettiCount}),
+        setLastWinner: (lastWinner) =>
+            set({lastWinner}),
     }),
     {
       name: "SpinnerApp.preferences",

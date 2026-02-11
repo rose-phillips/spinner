@@ -7,6 +7,7 @@ import Table from "../results table/Table";
 import PreferencesPaneComponent from "../settings/PreferencesPane";
 import {usePreferenceStore} from "../stores/PreferenceStore";
 import {bootstrapLocalStorage} from "../../common/helpers/general";
+import {LastWinner} from "./LastWinner";
 
 export interface Scores {
   [year: number]: number[],
@@ -104,38 +105,41 @@ checkYears();
   }, [list,thisYear]);
   //
 
-  // check to see if there are any sounds set in the preferences
-  // if not, set some defaults
-  bootstrapLocalStorage(usePreferenceStore());
+	// check to see if there are any sounds set in the preferences
+	// if not, set some defaults
+	bootstrapLocalStorage(usePreferenceStore());
 
-  return (
-    <>
-      <div className="d-flex justify-content-center flex-wrap m-auto">
-        <List 
-        list={list} 
-        setList={setList} 
-        highestScoreThisMonth={highestPerMonth[new Date().getMonth()]}
-        months={months}
-        thisYear={thisYear}
-        />
-        <Spinner
-          list={list}
-          setOpen={setOpen}
-          winner={winner}
-          setWinner={setWinner}
-          setIsExploding={setIsExploding}
-        />
-        <WinnerPopup
-          open={open}
-          setOpen={setOpen}
-          list={list}
-          setList={setList}
-          winner={winner}
-          thisYear={thisYear}
-        />
-        <Confetti isExploding={isExploding} />
-      </div>
-      <div className="d-flex flex-column-reverse align-items-center">
+	return (
+		<>
+			<div className="d-flex justify-content-center flex-wrap m-auto">
+				<List
+					list={list}
+					setList={setList}
+					highestScoreThisMonth={highestPerMonth[new Date().getMonth()]}
+					months={months}
+					thisYear={thisYear}
+				/>
+				<Spinner
+					list={list}
+					setOpen={setOpen}
+					winner={winner}
+					setWinner={setWinner}
+					setIsExploding={setIsExploding}
+				/>
+				<WinnerPopup
+					open={open}
+					setOpen={setOpen}
+					list={list}
+					setList={setList}
+					winner={winner}
+					thisYear={thisYear}
+				/>
+				<Confetti isExploding={isExploding} />
+			</div>
+			<div className="d-flex flex-column-reverse align-items-center">
+				<LastWinner />
+			</div>
+			<div className="d-flex flex-column-reverse align-items-center">
 
         {allYears.map((year) => (     
         <Table 
