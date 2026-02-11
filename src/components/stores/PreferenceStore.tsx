@@ -7,40 +7,45 @@ export interface SpinnerSoundChoice {
 }
 
 export interface PreferenceStore {
-	spinnerSound: SpinnerSoundChoice | undefined;
-	victorySound: string | undefined;
-	spinnerAutoplay: boolean;
-	victorySoundAutoplay: boolean;
-	confettiCount: number;
-	setSpinnerSound: (newSound: SpinnerSoundChoice) => void;
-	setVictorySound: (newSound: string) => void;
-	setSpinnerAutoplay: (newSound: boolean) => void;
-	setVictorySoundAutoplay: (newSound: boolean) => void;
-	setConfettiCount: (newSound: number) => void;
+  spinnerSound: SpinnerSoundChoice | undefined;
+  victorySound: string | undefined;
+  spinnerAutoplay: boolean;
+  victorySoundAutoplay: boolean;
+  confettiCount: number;
+  lastWinner: string | undefined;
+  setSpinnerSound: (newSound: SpinnerSoundChoice) => void;
+  setVictorySound: (newSound: string) => void;
+  setSpinnerAutoplay: (newSound: boolean) => void;
+  setVictorySoundAutoplay: (newSound: boolean) => void;
+  setConfettiCount: (newSound: number) => void;
+  setLastWinner: (newWinner: string) => void;
 }
 
 export const usePreferenceStore = create<PreferenceStore>()(
-	persist(
-		(set) => ({
-			spinnerSound: undefined,
-			victorySound: undefined,
-			spinnerAutoplay: false,
-			victorySoundAutoplay: false,
-			confettiCount: 1,
-			setSpinnerSound: (spinnerSound) =>
-				set({ spinnerSound }),
-			setVictorySound: (victorySound) =>
-				set({ victorySound }),
-			setSpinnerAutoplay: (spinnerAutoplay) =>
-				set({ spinnerAutoplay }),
-			setVictorySoundAutoplay: (victorySoundAutoplay) =>
-				set({ victorySoundAutoplay }),
-			setConfettiCount: (confettiCount) =>
-				set({ confettiCount }),
-		}),
-		{
-			name: "SpinnerApp.preferences",
-			storage: createJSONStorage(() => localStorage),
-		}
-	)
+  persist(
+    (set) => ({
+        spinnerSound: undefined,
+        victorySound: undefined,
+        spinnerAutoplay: false,
+        victorySoundAutoplay: false,
+        confettiCount: 1,
+        lastWinner: undefined,
+    setSpinnerSound: (spinnerSound) =>
+        set({spinnerSound}),
+    setVictorySound: (victorySound) =>
+        set({victorySound}),
+    setSpinnerAutoplay: (spinnerAutoplay) =>
+        set({spinnerAutoplay}),
+    setVictorySoundAutoplay: (victorySoundAutoplay) =>
+        set({victorySoundAutoplay}),
+      setConfettiCount: (confettiCount) =>
+        set({confettiCount}),
+        setLastWinner: (lastWinner) =>
+            set({lastWinner}),
+    }),
+    {
+      name: "SpinnerApp.preferences",
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
 );
