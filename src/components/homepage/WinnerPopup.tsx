@@ -1,5 +1,6 @@
 import Popup from "reactjs-popup";
 import type { Item } from "./Home";
+import {usePreferenceStore} from "../stores/PreferenceStore";
 
 const WinnerPopup = ({
   open,
@@ -16,6 +17,7 @@ const WinnerPopup = ({
   winner: Item;
   thisYear: number
 }) => {
+  const {setLastWinner} = usePreferenceStore(preferences => preferences);
   const closeModal = () => setOpen(false);
 
   const handleAddMonthlyScore = (id: string) => {
@@ -40,7 +42,7 @@ return {
     setList(newList);
   };
 
-  const handleAddPoint = (id: string) => {
+  const handleAddPoint = (id: string, winner: string) => {
     const newList = list.map((item) => {
       if (item.id === id) {
         return { ...item, score: ++item.score };
@@ -49,6 +51,7 @@ return {
     setList(newList);
     setOpen(false);
     handleAddMonthlyScore(id);
+    setLastWinner(winner);
   };
   return (
     <div>
@@ -60,7 +63,7 @@ return {
           <div className="winner-popup-inner-content d-flex flex-column align-items-center">
             <h1>{winner.option}</h1>
             <p>you are the winner.</p>
-            <button onClick={() => handleAddPoint(winner.id)}>+1 point</button>
+            <button onClick={() => handleAddPoint(winner.id, winner.option)}>+1 point</button>
           </div>
         </div>
       </Popup>
