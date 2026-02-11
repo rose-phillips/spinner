@@ -1,14 +1,19 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
+export interface SpinnerSoundChoice {
+	value: string;
+	timeout?: number;
+}
+
 export interface PreferenceStore {
-  spinnerSound: string | undefined;
+  spinnerSound: SpinnerSoundChoice | undefined;
   victorySound: string | undefined;
   spinnerAutoplay: boolean;
   victorySoundAutoplay: boolean;
   confettiCount: number;
   lastWinner: string | undefined;
-  setSpinnerSound: (newSound: string) => void;
+  setSpinnerSound: (newSound: SpinnerSoundChoice) => void;
   setVictorySound: (newSound: string) => void;
   setSpinnerAutoplay: (newSound: boolean) => void;
   setVictorySoundAutoplay: (newSound: boolean) => void;

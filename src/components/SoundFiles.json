@@ -27,12 +27,14 @@
         {
             "id": "1",
             "name": "Ticker",
-            "value": "/sounds/spin-clicks.mp3"
+            "value": "/sounds/spin-clicks.mp3",
+            "timeout": 90
         },
         {
             "id": "2",
             "name": "Funhaus",
-            "value": "/sounds/thewheelhausaudio.mp3"
+            "value": "/sounds/thewheelhausaudio.mp3",
+            "timeout": 10
         }
     ]
 }
