@@ -79,7 +79,8 @@ const Spinner = ({
 				radiusLineWidth={2}
 				fontFamily="Roboto Mono"
 				fontWeight={200}
-				spinDuration={0.36}
+				disableInitialAnimation={true}
+				spinDuration={spinnerSound?.duration ?? 0.36}
 			/>
 			<button className="spin-button" onClick={handleSpinClick}>
 				SPIN

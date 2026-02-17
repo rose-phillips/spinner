@@ -34,7 +34,22 @@
             "id": "2",
             "name": "Funhaus",
             "value": "/sounds/thewheelhausaudio.mp3",
-            "timeout": 10
+            "timeout": 10,
+            "duration": 0.37
+        },
+        {
+            "id": "3",
+            "name": "Ayush Long",
+            "value": "/sounds/mellam.mp3",
+            "timeout": 10,
+            "duration": 2.12
+        },
+        {
+            "id": "4",
+            "name": "Ayush Short",
+            "value": "/sounds/chenda_melam.mp3",
+            "timeout": 10,
+            "duration": 0.48
         }
     ]
 }

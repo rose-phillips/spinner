@@ -29,7 +29,7 @@ const PreferencesPaneComponent = () => {
 	}
 
 	const handleSpinnerSoundChange = (option: any) => {
-		setSpinnerSound({ value: option.value, timeout: option.timeout });
+		setSpinnerSound({ value: option.value, timeout: option.timeout, duration: option.duration });
 	}
 
 	const handleSpinnerAutoplayChange = (e:any) => {

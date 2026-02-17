@@ -4,6 +4,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 export interface SpinnerSoundChoice {
 	value: string;
 	timeout?: number;
+	duration?: number;
 }
 
 export interface PreferenceStore {
