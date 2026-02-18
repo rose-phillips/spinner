@@ -89,11 +89,13 @@ const Spinner = ({
 				id={"victorySound-choice"}
 				src={victorySound}
 				ref={victorySoundRef}
+				preload={"auto"}
 			></audio>
 			<audio
 				id={"spinnerSound-choice"}
 				src={spinnerSound?.value}
 				ref={spinnerSoundRef}
+				preload={"auto"}
 			></audio>
 		</div>
 	);

@@ -16,30 +16,43 @@ export const PlayButton: React.FC<IPlaybuttonProps> = ({
     const soundChoice = usePreferenceStore((state: PreferenceStore) => currentSoundFromPref);
     const soundRef = useRef<HTMLAudioElement>(null);
 
-
-    const [play, setPlay] = useState("▶");
+    const [isPlaying, setIsPlaying] = useState(false);
 
     const playSound = () => {
-        if (soundRef.current) {
-            if (soundRef.current.paused) {
-                soundRef.current.volume = 0.15;
-                soundRef.current.play();
-                setPlay("⏹");
-            } else {
-                soundRef.current.pause();
-                soundRef.current.currentTime = 0;
-                setPlay("▶");
-            }
+        const audio = soundRef.current;
+        if (!audio) return;
+
+        audio.load();
+
+        if (audio.paused) {
+            audio.volume = 0.15;
+            audio.play();
+            setIsPlaying(true);
+        } else {
+            audio.pause();
+            audio.currentTime = 0;
+            setIsPlaying(false);
         }
+
+        audio.onended = () => setIsPlaying(false);
     };
+
     return (
         <>
-        <button className="play-button" onClick={playSound}>{play}</button>
-        <audio
-            id={"victorySound-choice"}
-            src={soundChoice}
-            ref={soundRef}
-        ></audio>
+            <button
+                className="play-button"
+                onClick={playSound}
+                aria-label={isPlaying ? "Stop" : "Play"}
+            >
+                {isPlaying ? "⏹" : "▶"}
+            </button>
+
+            <audio
+                id={"victorySound-choice"}
+                src={soundChoice}
+                ref={soundRef}
+                preload={"auto"}
+            ></audio>
         </>
     );
 };
