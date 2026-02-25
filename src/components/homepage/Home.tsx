@@ -4,9 +4,8 @@ import Spinner from "./Spinner";
 import WinnerPopup from "./WinnerPopup";
 import Confetti from "./Confetti";
 import Table from "../results table/Table";
-import PreferencesPaneComponent from "../settings/PreferencesPane";
-import {usePreferenceStore} from "../stores/PreferenceStore";
-import {bootstrapLocalStorage} from "../../common/helpers/general";
+
+
 import {LastWinner} from "./LastWinner";
 
 export interface Scores {
@@ -105,9 +104,7 @@ checkYears();
   }, [list,thisYear]);
   //
 
-	// check to see if there are any sounds set in the preferences
-	// if not, set some defaults
-	bootstrapLocalStorage(usePreferenceStore());
+
 
 	return (
 		<>
@@ -154,9 +151,7 @@ checkYears();
         )}
 
       </div>
-        <div className="d-flex flex-direction-column justify-content-center preferences-wrap">
-            <PreferencesPaneComponent />
-        </div>
+
     </>
   );
 };

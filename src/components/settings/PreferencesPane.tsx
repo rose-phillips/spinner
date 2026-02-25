@@ -53,6 +53,7 @@ const PreferencesPaneComponent = () => {
 
 	const modal = document.querySelector('dialog');
 	const openPreferencesModal = (e: any) => {
+		console.log("hello", modal)
 		e.preventDefault();
 		modal && modal.showModal();
 
