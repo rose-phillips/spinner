@@ -6,8 +6,10 @@ import soundList from '../SoundFiles.json';
 import { usePreferenceStore } from "../stores/PreferenceStore";
 import RangeComponent from "./RangeComponent";
 
-const PreferencesPaneComponent = () => {
+import { useRef } from 'react';
 
+const PreferencesPaneComponent = () => {
+	const dialogRef = useRef<HTMLDialogElement>(null);
 	console.log('preference store is ', usePreferenceStore)
 	const {
 		setVictorySound,
@@ -51,27 +53,25 @@ const PreferencesPaneComponent = () => {
 		setConfettiCount(preference);
 	}
 
-	const modal = document.querySelector('dialog');
 	const openPreferencesModal = (e: any) => {
-		console.log("hello", modal)
-		e.preventDefault();
-		modal && modal.showModal();
-
-	}
+			e.preventDefault();
+			if (dialogRef.current) {
+				dialogRef.current.showModal();
+			}
+		};
 
 	const closePreferencesModal = (e: any) => {
-		// e.preventDefault();
-		if (e.target === modal) {
-			modal && modal.close();
-		}
-	}
+			if (e.target === dialogRef.current) {
+				dialogRef.current?.close();
+			}
+		};
 
 	return (
 		<>
 			<button onClick={e => openPreferencesModal(e)}>
 				Open Preferences
 			</button>
-			<dialog onClick={e => closePreferencesModal(e)} >
+			<dialog onClick={e => closePreferencesModal(e)} ref={dialogRef}>
 				<div className="preferences-popup">
 					<SelectComponent
 						inputName="Victory Sound"
