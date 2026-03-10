@@ -13,9 +13,9 @@ const Header = () => {
         <Link to="/" className="link">
           <h1 className="mx-auto my-3">{"<StandUpSpinner/>"}</h1>
         </Link>
-                <div className="d-flex flex-direction-column justify-content-center preferences-wrap">
+
             <PreferencesPaneComponent />
-        </div>
+
       </header>
     </div>
   );

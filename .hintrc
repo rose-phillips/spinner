@@ -25,6 +25,7 @@
         "select-name": "off"
       }
     ],
-    "no-inline-styles": "off"
+    "no-inline-styles": "off",
+    "apple-touch-icons": "off"
   }
 }

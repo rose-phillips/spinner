@@ -47,28 +47,28 @@ export default function EditDialog(
       }
     }
     //
-    const handleUpdate = () => {
-      list.forEach((item, index) => {
-        let newList;
-        if (item.id === itemToEdit?.id) 
-        {  
-           newList = [...list, list[index].allScores = itemToEdit.allScores]
-          return newList;
-        } else newList = [...list]
-        setList(newList)
-        setItemToEdit(null)
-        })
-        closeModal()
+const handleUpdate = () => {
+  const updatedList = list.map((item) => {
+    if (item.id === itemToEdit?.id && itemToEdit) {
+      return { ...item, allScores: { ...itemToEdit.allScores } };
     }
+    return item;
+  });
+
+  closeModal();
+
+  setList(updatedList);
+  setItemToEdit(null);
+};
     //
-  return (itemToEdit &&
+  return (
   <dialog ref={pointsEditorDialog}>
     <div className="inner-dialog">
-    <h5>Edit {itemToEdit.option}'s points.</h5>
+    <h5>Edit {itemToEdit?.option}'s points.</h5>
     <button className="points-editor-close" type="button" onClick={closeModal}>X</button>
     <form className="edit-points-form" action="">
       {months.map((month, index) => <div className="form-item" key={index}><label htmlFor={month}>{month}</label>
-      <input type="string" id={month} defaultValue={itemToEdit.allScores[thisYear][index]} onChange={(ev) => handleChange(index, ev.target.value)} /></div>)}
+      <input type="string" id={month} defaultValue={itemToEdit?.allScores[thisYear][index]} onChange={(ev) => handleChange(index, ev.target.value)} /></div>)}
     </form>
     <button type="button" value="submit" onClick={handleUpdate}>Update</button>
     </div>

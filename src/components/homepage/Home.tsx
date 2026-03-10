@@ -115,7 +115,8 @@ checkYears();
 					highestScoreThisMonth={highestPerMonth[new Date().getMonth()]}
 					months={months}
 					thisYear={thisYear}
-				/>
+				/>        			
+        <div className="d-flex flex-column align-items-center gap-5">
 				<Spinner
 					list={list}
 					setOpen={setOpen}
@@ -123,6 +124,9 @@ checkYears();
 					setWinner={setWinner}
 					setIsExploding={setIsExploding}
 				/>
+
+				<LastWinner />
+			</div>
 				<WinnerPopup
 					open={open}
 					setOpen={setOpen}
@@ -133,9 +137,7 @@ checkYears();
 				/>
 				<Confetti isExploding={isExploding} />
 			</div>
-			<div className="d-flex flex-column-reverse align-items-center">
-				<LastWinner />
-			</div>
+
 			<div className="d-flex flex-column-reverse align-items-center">
 
         {allYears.map((year) => (     
