@@ -59,18 +59,18 @@ function List({
   }, [list]);
 
   const getItemNameForList = (item: Item) => {
+    const name = item.option;
 
-    const nameForList = item.option;
     const isCurrentHighestScore = item.allScores[thisYear][new Date().getMonth()] === highestScoreThisMonth;
     const isLastWinner = item.option === lastWinner;
     const highScoreImage = <img className="greggs-logo" src={greggsLogo} alt="greggs logo" />;
-    const lastWinnerSpan = <span className="last-winner-text">{` <-- last spin winner`}</span>
-    const className = `${isCurrentHighestScore ? 'green' : ''}`;
+    const lastWinnerText = <span className="last-winner-text">{` <-- won last spin`}</span>
 
-    return <span className={className}>
-      {nameForList}
+
+    return <span className={isCurrentHighestScore ? 'green' : ''}>
+      {name}
       {isCurrentHighestScore ? highScoreImage : ""}
-      {isLastWinner ? lastWinnerSpan : ""}
+      {isLastWinner ? lastWinnerText : ""}
       </span>
   }
 

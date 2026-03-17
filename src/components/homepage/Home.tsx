@@ -5,9 +5,6 @@ import WinnerPopup from "./WinnerPopup";
 import Confetti from "./Confetti";
 import Table from "../results table/Table";
 
-
-import {LastWinner} from "./LastWinner";
-
 export interface Scores {
   [year: number]: number[],
 }
@@ -116,17 +113,13 @@ checkYears();
 					months={months}
 					thisYear={thisYear}
 				/>        			
-        <div className="d-flex flex-column align-items-center gap-5">
 				<Spinner
 					list={list}
 					setOpen={setOpen}
 					winner={winner}
 					setWinner={setWinner}
 					setIsExploding={setIsExploding}
-				/>
-
-				<LastWinner />
-			</div>
+				/>	
 				<WinnerPopup
 					open={open}
 					setOpen={setOpen}
