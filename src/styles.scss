@@ -8,7 +8,7 @@
   --dark-grey: #464646;
   --medium-grey: #acacac;
   --light-grey: #efefef;
-  --green: chartreuse;
+  --primary-text: hotpink;
   --red: #e24a2b;
   
 }
@@ -17,8 +17,8 @@
   font-weight: 300;
 }
 
-.green {
-  color: var(--green);
+.primary-text {
+  color: var(--primary-text);
 }
 
 body {
@@ -34,7 +34,7 @@ body {
 }
 
 header {
-  color: var(--green);
+  color: var(--primary-text);
   padding: 0.3rem 4rem;
   font-size: 1rem;
   margin-bottom: 3rem;
@@ -52,7 +52,7 @@ header {
 
 header h1 {
   font-weight: 100;
-  color: var(--green);
+  color: var(--primary-text);
   text-decoration: none;
 }
 
@@ -60,7 +60,7 @@ header h1 {
 .input-form {
   margin-right: 4rem;
   padding: 2rem;
-  background: var(--dark-grey);
+  background: var(--darkest-grey);
 }
 
 input {
@@ -154,7 +154,7 @@ input {
   top: 4px;
   width: 6px;
   height: 11px;
-  border: solid chartreuse;
+  border: solid var(--primary-text);
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -193,7 +193,7 @@ button {
   z-index: 99;
   border-radius: 50%;
   background-color: transparent;
-  color: chartreuse;
+  color: var(--primary-text);
   font-size: 24px;
 }
 
@@ -234,11 +234,11 @@ button {
 }
 
 table thead {
-  background: #464646;
+  background: var(--darkest-grey);
 }
 
 td {
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid var(--darkest-grey);
   padding: 5px;
   text-align: center;
 }
@@ -424,12 +424,12 @@ select {
     }
   }
   input[type="checkbox"]:checked {
-accent-color: var(--green);
+accent-color: var(--primary-text);
   }
 
   input[type="range"] {
     width: 100%;
-    accent-color: var(--green);
+    accent-color: var(--primary-text);
   }
 
   .output {
