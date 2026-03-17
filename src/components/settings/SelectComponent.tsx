@@ -24,7 +24,8 @@ const SelectComponent = (props: SelectProps) => {
 
 	return (
 		<div>
-			<label htmlFor={props.inputName}>{props.inputName} - </label>
+			<label className="input-label" htmlFor={props.inputName}>{props.inputName}</label>
+			<br />
 			<select
 				defaultValue={props.preferenceChoice}
 				name={props.inputName}

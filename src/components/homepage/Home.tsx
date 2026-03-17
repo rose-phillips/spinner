@@ -4,10 +4,6 @@ import Spinner from "./Spinner";
 import WinnerPopup from "./WinnerPopup";
 import Confetti from "./Confetti";
 import Table from "../results table/Table";
-import PreferencesPaneComponent from "../settings/PreferencesPane";
-import {usePreferenceStore} from "../stores/PreferenceStore";
-import {bootstrapLocalStorage} from "../../common/helpers/general";
-import {LastWinner} from "./LastWinner";
 
 export interface Scores {
   [year: number]: number[],
@@ -105,9 +101,7 @@ checkYears();
   }, [list,thisYear]);
   //
 
-	// check to see if there are any sounds set in the preferences
-	// if not, set some defaults
-	bootstrapLocalStorage(usePreferenceStore());
+
 
 	return (
 		<>
@@ -118,14 +112,14 @@ checkYears();
 					highestScoreThisMonth={highestPerMonth[new Date().getMonth()]}
 					months={months}
 					thisYear={thisYear}
-				/>
+				/>        			
 				<Spinner
 					list={list}
 					setOpen={setOpen}
 					winner={winner}
 					setWinner={setWinner}
 					setIsExploding={setIsExploding}
-				/>
+				/>	
 				<WinnerPopup
 					open={open}
 					setOpen={setOpen}
@@ -136,9 +130,7 @@ checkYears();
 				/>
 				<Confetti isExploding={isExploding} />
 			</div>
-			<div className="d-flex flex-column-reverse align-items-center">
-				<LastWinner />
-			</div>
+
 			<div className="d-flex flex-column-reverse align-items-center">
 
         {allYears.map((year) => (     
@@ -154,9 +146,7 @@ checkYears();
         )}
 
       </div>
-        <div className="d-flex flex-direction-column justify-content-center preferences-wrap">
-            <PreferencesPaneComponent />
-        </div>
+
     </>
   );
 };

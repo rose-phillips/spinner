@@ -3,6 +3,11 @@ import { v4 as uuidv4 } from "uuid";
 import type { Item } from "./Home";
 import greggsLogo from '../../assets/images/greggs-no-text-small.png'
 
+import {usePreferenceStore} from "../stores/PreferenceStore";
+
+
+
+  
 function List({
   list,
   setList,
@@ -16,6 +21,9 @@ function List({
   thisYear: number;
 }) {
   const itemNameRef = useRef<null | HTMLInputElement>(null);
+
+  const {lastWinner} = usePreferenceStore(preferences => preferences);
+
 
   const handleAdd = (e: any) => {
     e.preventDefault();
@@ -51,14 +59,19 @@ function List({
   }, [list]);
 
   const getItemNameForList = (item: Item) => {
-    if (item.allScores[thisYear][new Date().getMonth()] === highestScoreThisMonth) {
-      return <span className="green">
-        {item.option}
-        <img className="greggs-logo" src={greggsLogo} alt="greggs logo" />
-        </span>
-        
-    }
-   return <span>{item.option}</span>
+    const name = item.option;
+
+    const isCurrentHighestScore = item.allScores[thisYear][new Date().getMonth()] === highestScoreThisMonth;
+    const isLastWinner = item.option === lastWinner;
+    const highScoreImage = <img className="greggs-logo" src={greggsLogo} alt="greggs logo" />;
+    const lastWinnerText = <span className="last-winner-text">{` <-- won last spin`}</span>
+
+
+    return <span className={isCurrentHighestScore ? 'green' : ''}>
+      {name}
+      {isCurrentHighestScore ? highScoreImage : ""}
+      {isLastWinner ? lastWinnerText : ""}
+      </span>
   }
 
   return (
