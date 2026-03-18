@@ -47,7 +47,7 @@ export default function Table({
               {item.allScores[thisYear].map((score, index) => (
                 <td
                   key={`${item.option}-${months[index]}`}
-                  className={score === highestPerMonth[index] ? "primary-text" : ""}
+                  className={score === highestPerMonth[index] ? "primary-color" : ""}
                 >
                   {score === 0 && index > new Date().getMonth() ? "" : score}
                 </td>

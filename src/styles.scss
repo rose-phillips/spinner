@@ -4,25 +4,70 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
 :root {
+  --background: #000;
   --darkest-grey: #242424;
   --dark-grey: #464646;
   --medium-grey: #acacac;
   --light-grey: #efefef;
-  --primary-text: hotpink;
-  --red: #e24a2b;
-  
+  --white: white;
+  --primary-color: chartreuse;
+  --red: #e24a2b; 
+}
+
+.primary-pink {
+    --primary-color: deeppink;
+}
+
+.primary-purple {
+  --primary-color: DarkViolet;
+}
+
+.primary-blue {
+  --primary-color: RoyalBlue;
+}
+
+.primary-red {
+  --primary-color: Crimson;
+}
+
+.primary-orange {
+  --primary-color: Tomato;
+}
+
+.primary-yellow {
+  --primary-color: Gold;
+}
+
+.color-swatch {
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
+}
+
+.background-blue {
+  --background: #000e28;
+  --darkest-grey: #001C57;
+  --dark-grey: #033c81;
+  --medium-grey: #003d88;
+  --light-grey: #bcd9fc;
 }
 
 * {
   font-weight: 300;
 }
 
-.primary-text {
-  color: var(--primary-text);
+.primary-color {
+  color: var(--primary-color);
+}
+
+.app {
+  background-color: var(--background);
 }
 
 body {
-  background: #000;
+  background: var(--background);
   margin: 0;
   font-family: "Roboto Mono";
   color: white;
@@ -34,7 +79,7 @@ body {
 }
 
 header {
-  color: var(--primary-text);
+  color: var(--primary-color);
   padding: 0.3rem 4rem;
   font-size: 1rem;
   margin-bottom: 3rem;
@@ -52,7 +97,7 @@ header {
 
 header h1 {
   font-weight: 100;
-  color: var(--primary-text);
+  color: var(--primary-color);
   text-decoration: none;
 }
 
@@ -119,21 +164,21 @@ input {
   left: 0;
   height: 25px;
   width: 25px;
-  background-color: grey;
+  background-color: var(--medium-grey);
   border-radius: 25px;
-  border: 1px solid darkgrey;
+  border: 1px solid var(--medium-grey);
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input~.checkmark {
-  background-color: #ccc;
+  background-color: var(--light-grey);
 }
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked~.checkmark {
-  background-color: black;
+  background-color: var(--background);
   border-radius: 20px;
-  border: 1px solid black;
+  border: 1px solid var(--background);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -154,7 +199,7 @@ input {
   top: 4px;
   width: 6px;
   height: 11px;
-  border: solid var(--primary-text);
+  border: solid var(--primary-color);
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -162,16 +207,25 @@ input {
 }
 
 button {
+  background-color: var(--white);
   border: none;
   padding: 8px 20px;
   margin: 5px;
 }
 
+input {
+  background-color: var(--light-grey);
+  color: var(--darkest-grey);
+  &::placeholder {
+    color: var(--darkest-grey);
+    opacity: 0.7;
+  }
+}
 .delete-button {
   padding: 0 5px;
   border: none;
   background-color: transparent;
-  color: #e24a2b;
+  color: var(--red);
 
   border-radius: 20px;
 }
@@ -193,22 +247,18 @@ button {
   z-index: 99;
   border-radius: 50%;
   background-color: transparent;
-  color: var(--primary-text);
+  color: var(--primary-color);
   font-size: 24px;
-}
-
-.border {
-  border: 2px solid salmon;
 }
 
 .winner-popup {
   padding: 10px 15px;
-  background-color: white;
-  color: black;
+  background-color: var(--white);
+  color: var(--background);
 }
 
 .winner-popup-inner-content {
-  background-color: white;
+  background-color: var(--white);
   border: none;
   margin: 0 auto;
   padding-bottom: 25px;
@@ -258,7 +308,7 @@ td {
 .edit-button {
   padding: 5px;
   font-size: 12px;
-  background-color: var(--light-grey);
+  background-color: var(--white);
 }
 
 
@@ -289,10 +339,11 @@ td {
   }
 
   input {
-    border: 1px dotted black;
+    border: 1px dotted var(--background);
     width: 50px;
     margin-top: 5px;
     background-color: var(--light-grey);
+    color: var(--darkest-grey);
   }
 }
 
@@ -369,9 +420,7 @@ input:checked + .slider:before {
   padding-right: 10px;
 }
 
-.preferences-button {
-  background-color: var(--light-grey);
-}
+
 
 .sound-select-container {
   display: flex;
@@ -382,8 +431,13 @@ input:checked + .slider:before {
   gap: 10px;
   padding-top: 10px;
 }
-select {
+
+.select-container {
+  display: flex;
+  align-items: center;
   margin-top: 15px;
+}
+select {
   padding: 6px;
   border: none;
   background-color: var(--dark-grey);
@@ -391,7 +445,6 @@ select {
   font-size: 12px;
   width: 116px;
 }
-
 .preferences-popup {
   padding: 60px;
   display: flex;
@@ -424,12 +477,12 @@ select {
     }
   }
   input[type="checkbox"]:checked {
-accent-color: var(--primary-text);
+accent-color: var(--primary-color);
   }
 
   input[type="range"] {
     width: 100%;
-    accent-color: var(--primary-text);
+    accent-color: var(--primary-color);
   }
 
   .output {
@@ -457,7 +510,7 @@ accent-color: var(--primary-text);
 }
 
 dialog {
-  width: 575px;
+  min-width: 575px;
   padding: 0;
   border: none;
   background-color: var(--darkest-grey);

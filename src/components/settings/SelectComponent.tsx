@@ -1,3 +1,4 @@
+import ColorSwatch from "./ColorSwatch";
 import {PlayButton} from "./PlayButton";
 
 type Option = {
@@ -12,7 +13,8 @@ type SelectProps = {
 	inputName: string,
 	options: Option[],
 	handleSelectChange: (option: Option) => void
-	preferenceChoice: string
+	preferenceChoice: string,
+	preferenceType: "sound" | "color"
 }
 
 const SelectComponent = (props: SelectProps) => {
@@ -23,9 +25,11 @@ const SelectComponent = (props: SelectProps) => {
 	};
 
 	return (
+		
 		<div>
 			<label className="input-label" htmlFor={props.inputName}>{props.inputName}</label>
 			<br />
+			<div className="select-container">
 			<select
 				defaultValue={props.preferenceChoice}
 				name={props.inputName}
@@ -44,8 +48,16 @@ const SelectComponent = (props: SelectProps) => {
 					);
 				})}
 			</select>
+			<div>
+			{
+				props.preferenceType === "color" ? 
+					<ColorSwatch /> :
+					<PlayButton soundType={props.inputName} currentSoundFromPref={props.preferenceChoice} />
+			}
+			</div>
+		</div>
 
-			<PlayButton soundType={props.inputName} currentSoundFromPref={props.preferenceChoice} />
+
 		</div>
 	);
 };

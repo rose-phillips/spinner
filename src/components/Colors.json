@@ -1,0 +1,52 @@
+{
+"textColors": [
+    {
+    "id": "1",
+    "name": "Green",
+    "value": ""
+  },
+  {
+    "id": "4",
+    "name": "Blue",
+    "value": "primary-blue"
+  },
+    {
+    "id": "3",
+    "name": "Purple",
+    "value": "primary-purple"
+  },
+  {
+    "id": "2",
+    "name": "Pink",
+    "value": "primary-pink"
+  },
+  {
+    "id": "5",
+    "name": "Red",
+    "value": "primary-red"
+  },
+  {
+    "id": "6",
+    "name": "Orange",
+    "value": "primary-orange"
+  },
+  {
+    "id": "7",
+    "name": "Yellow",
+    "value": "primary-yellow"
+  }
+],
+"spinnerColors": 
+[
+  {
+    "id": "1",
+    "name": "Mono",
+    "value": ["lightgrey", "grey", "darkgrey"]
+},
+  {
+    "id": "2",
+    "name": "Pastel",
+    "value": ["honeydew", "aliceblue", "LavenderBlush", "MistyRose", "GhostWhite", "MintCream", "snow", "Lavender", "LightYellow"]
+}
+]
+}
