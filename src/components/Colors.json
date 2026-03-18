@@ -1,5 +1,5 @@
 {
-"textColors": [
+"primaryColors": [
     {
     "id": "1",
     "name": "Green",
@@ -36,17 +36,31 @@
     "value": "primary-yellow"
   }
 ],
-"spinnerColors": 
+"spinnerThemes": 
 [
   {
     "id": "1",
-    "name": "Mono",
-    "value": ["lightgrey", "grey", "darkgrey"]
+    "name": "Steel Sword",
+    "value": "steelSword",
+    "themeColors": ["#5b6b71", "#687a81", "#758991", "#8399a2", "#8fa3ab", "#9badb4", "#a8b7bd", "#b4c1c7"]
 },
   {
     "id": "2",
-    "name": "Pastel",
-    "value": ["honeydew", "aliceblue", "LavenderBlush", "MistyRose", "GhostWhite", "MintCream", "snow", "Lavender", "LightYellow"]
+    "name": "Rainbow Cloud",
+    "value": "rainbowCloud",
+    "themeColors": ["#ffadad","#ffd6a5","#fdffb6","#caffbf","#9bf6ff","#a0c4ff","#bdb2ff","#ffc6ff"]
+},
+  {
+    "id": "2.1",
+    "name": "Summer Forrest",
+    "value": "summerForrest",
+    "themeColors": ["#e76f51", "#ee8959", "#f4a261", "#efb366", "#e9c46a", "#babb74", "#8ab17d", "#2a9d8f"]
+},
+ {
+    "id": "1.2",
+    "name": "Fried Neon",
+    "value": "friedNeon",
+    "themeColors": ["#f72585","#b5179e","#7209b7","#560bad","#3f37c9","#4361ee","#4895ef","#4cc9f0"]
 }
 ]
 }

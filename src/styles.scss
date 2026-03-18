@@ -15,11 +15,11 @@
 }
 
 .primary-pink {
-    --primary-color: deeppink;
+    --primary-color: rgb(228, 34, 137);
 }
 
 .primary-purple {
-  --primary-color: DarkViolet;
+  --primary-color: MediumOrchid;
 }
 
 .primary-blue {
@@ -27,7 +27,7 @@
 }
 
 .primary-red {
-  --primary-color: Crimson;
+  --primary-color: #e01e37;
 }
 
 .primary-orange {
@@ -35,7 +35,7 @@
 }
 
 .primary-yellow {
-  --primary-color: Gold;
+  --primary-color: rgb(255, 223, 42);
 }
 
 .color-swatch {
@@ -114,9 +114,12 @@ input {
 }
 
 .greggs-logo {
-  height: 16px;
+  background-color: #00598E;
+  height: 20px;
   margin-left: 10px;
   margin-bottom: 4px;
+  border: 3px solid #00598E;
+  border-radius: 3px;
 }
 
 .container {
@@ -443,13 +446,13 @@ select {
   background-color: var(--dark-grey);
   color: var(--light-grey);
   font-size: 12px;
-  width: 116px;
+  width: 134px;
 }
 .preferences-popup {
-  padding: 60px;
+  padding: 50px;
   display: flex;
   flex-direction: column;
-  gap: 70px;
+  gap: 50px;
 
   .input-label {
     font-weight: bold;
@@ -487,6 +490,7 @@ accent-color: var(--primary-color);
 
   .output {
     margin-top: 5px;
+    margin-bottom: -30px;
     display: flex;
     justify-content: center;
     justify-self: center;
