@@ -2,6 +2,7 @@ import SelectComponent from "./SelectComponent";
 import ToggleComponent from "./ToggleComponent";
 
 import soundList from "../SoundFiles.json";
+import colors from "../Colors.json"
 
 import { usePreferenceStore } from "../stores/PreferenceStore";
 import RangeComponent from "./RangeComponent";
@@ -11,18 +12,20 @@ import { useRef } from "react";
 
 const PreferencesPaneComponent = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  console.log("preference store is ", usePreferenceStore);
+
   const {
     setVictorySound,
     setSpinnerSound,
     setSpinnerAutoplay,
     setVictorySoundAutoplay,
     setConfettiCount,
+    setPrimaryColor,
     victorySound,
     spinnerSound,
     spinnerAutoplay,
     victorySoundAutoplay,
     confettiCount,
+    primaryColor
   } = usePreferenceStore((preferences) => preferences);
 
   // default the sound prefs to the first sound in the list if none are set
@@ -58,6 +61,10 @@ const PreferencesPaneComponent = () => {
     setConfettiCount(preference);
   };
 
+  const handleTextColorChange = (option: any) => {
+    setPrimaryColor(option.value);
+  };
+
   const openPreferencesModal = (e: any) => {
     e.preventDefault();
     if (dialogRef.current) {
@@ -91,6 +98,7 @@ const PreferencesPaneComponent = () => {
                 preferenceChoice={
                   spinnerSound?.value ?? soundList.spinnerSounds[0].value
                 }
+                preferenceType="sound"
               />
               <ToggleComponent
                 label="Auto play"
@@ -108,6 +116,7 @@ const PreferencesPaneComponent = () => {
                 preferenceChoice={
                   victorySound ?? soundList.victorySounds[0].value
                 }
+                preferenceType="sound"
               />
 
               <ToggleComponent
@@ -126,6 +135,16 @@ const PreferencesPaneComponent = () => {
               preferenceChoice={confettiCount ?? 1}
             />
           </div>
+                <SelectComponent
+                inputName="Primary Colour"
+                defaultValue="green"
+                options={colors.textColors}
+                handleSelectChange={handleTextColorChange}
+                preferenceChoice={
+                  primaryColor ?? ""
+                }
+                preferenceType="color"
+              />
         </div>
       </dialog>
     </>
