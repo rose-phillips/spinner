@@ -7,6 +7,11 @@ export interface SpinnerSoundChoice {
 	duration?: number;
 }
 
+export interface SpinnerThemeChoice {
+	value: string;
+	themeColors: string[];
+}
+
 export interface PreferenceStore {
   spinnerSound: SpinnerSoundChoice | undefined;
   victorySound: string | undefined;
@@ -14,6 +19,7 @@ export interface PreferenceStore {
   victorySoundAutoplay: boolean;
   confettiCount: number;
   primaryColor: string | undefined;
+  spinnerTheme: SpinnerThemeChoice | undefined;
   lastWinner: string | undefined;
   setSpinnerSound: (newSound: SpinnerSoundChoice) => void;
   setVictorySound: (newSound: string) => void;
@@ -21,6 +27,7 @@ export interface PreferenceStore {
   setVictorySoundAutoplay: (newSound: boolean) => void;
   setConfettiCount: (newSound: number) => void;
   setPrimaryColor: (newPrimaryTextColor: string) => void;
+  setSpinnerTheme: (newSpinnerTheme: SpinnerThemeChoice) => void;
   setLastWinner: (newWinner: string) => void;
 }
 
@@ -33,7 +40,7 @@ export const usePreferenceStore = create<PreferenceStore>()(
         victorySoundAutoplay: false,
         confettiCount: 1,
         primaryColor: undefined,
-        spinnerColors: undefined,
+        spinnerTheme: undefined,
         lastWinner: undefined,
     setSpinnerSound: (spinnerSound) =>
         set({spinnerSound}),
@@ -47,6 +54,8 @@ export const usePreferenceStore = create<PreferenceStore>()(
         set({confettiCount}),
       setPrimaryColor: (primaryColor) =>
         set({primaryColor}),
+      setSpinnerTheme: (spinnerTheme) =>
+        set({spinnerTheme}),
       setLastWinner: (lastWinner) =>
         set({lastWinner}),
     }),

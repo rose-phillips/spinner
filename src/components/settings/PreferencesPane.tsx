@@ -11,6 +11,8 @@ import { useRef } from "react";
 
 
 const PreferencesPaneComponent = () => {
+
+
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const {
@@ -20,13 +22,17 @@ const PreferencesPaneComponent = () => {
     setVictorySoundAutoplay,
     setConfettiCount,
     setPrimaryColor,
+    setSpinnerTheme,
     victorySound,
     spinnerSound,
     spinnerAutoplay,
     victorySoundAutoplay,
     confettiCount,
-    primaryColor
+    primaryColor,
+    spinnerTheme
   } = usePreferenceStore((preferences) => preferences);
+
+
 
   // default the sound prefs to the first sound in the list if none are set
 
@@ -63,6 +69,13 @@ const PreferencesPaneComponent = () => {
 
   const handleTextColorChange = (option: any) => {
     setPrimaryColor(option.value);
+  };
+
+    const handleSpinnerThemeChange = (option: any) => {
+    setSpinnerTheme({
+      value: option.value,
+      themeColors: option.themeColors
+    });
   };
 
   const openPreferencesModal = (e: any) => {
@@ -138,12 +151,24 @@ const PreferencesPaneComponent = () => {
                 <SelectComponent
                 inputName="Primary Colour"
                 defaultValue="green"
-                options={colors.textColors}
+                options={colors.primaryColors}
                 handleSelectChange={handleTextColorChange}
                 preferenceChoice={
                   primaryColor ?? ""
                 }
                 preferenceType="color"
+                colorCount="1"
+              />
+              <SelectComponent
+                inputName="Spinner Theme"
+                defaultValue="mono"
+                options={colors.spinnerThemes}
+                handleSelectChange={handleSpinnerThemeChange}
+                preferenceChoice={
+                  spinnerTheme?.value ?? colors.spinnerThemes[0].value
+                }
+                preferenceType="color"
+                colorCount="multi"
               />
         </div>
       </dialog>

@@ -14,7 +14,8 @@ type SelectProps = {
 	options: Option[],
 	handleSelectChange: (option: Option) => void
 	preferenceChoice: string,
-	preferenceType: "sound" | "color"
+	preferenceType: "sound" | "color",
+	colorCount?: "1" | "multi" | undefined
 }
 
 const SelectComponent = (props: SelectProps) => {
@@ -51,7 +52,7 @@ const SelectComponent = (props: SelectProps) => {
 			<div>
 			{
 				props.preferenceType === "color" ? 
-					<ColorSwatch /> :
+					<ColorSwatch colorCount={props.colorCount} /> :
 					<PlayButton soundType={props.inputName} currentSoundFromPref={props.preferenceChoice} />
 			}
 			</div>

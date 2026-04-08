@@ -32,7 +32,10 @@ const Spinner = ({
 	}, [list]);
 	//
 
-	const {victorySound, spinnerSound, spinnerAutoplay, victorySoundAutoplay} = usePreferenceStore(preferences => preferences);
+	const {victorySound, spinnerSound, spinnerAutoplay, victorySoundAutoplay, spinnerTheme} = usePreferenceStore(preferences => preferences);
+
+
+
 
 	const spinnerSoundRef = useRef<HTMLAudioElement>(null);
 	const victorySoundRef = useRef<HTMLAudioElement>(null);
@@ -71,7 +74,7 @@ const Spinner = ({
 					setOpen(true);
 					setIsExploding(true);
 				}}
-				backgroundColors={["lightgrey", "grey", "darkgrey"]}
+				backgroundColors={spinnerTheme?.themeColors}
 				outerBorderWidth={0}
 				innerBorderColor="black"
 				innerBorderWidth={50}
