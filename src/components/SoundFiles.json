@@ -50,6 +50,55 @@
             "value": "/sounds/chenda_melam.mp3",
             "timeout": 10,
             "duration": 0.48
+        },
+        {
+            "id": "5",
+            "name": "Luigi (sexy)",
+            "value": "/sounds/sexy-luigi-song.mp3",
+            "timeout": 10,
+            "duration": 2.54
+        },
+        {
+            "id": "6",
+            "name": "Luigis Mansion)",
+            "value": "/sounds/luigis-mansion.mp3",
+            "timeout": 10,
+            "duration": 1.29
+        },
+        {
+            "id": "7",
+            "name": "Arcade",
+            "value": "/sounds/that-game-arcade.mp3",
+            "timeout": 10,
+            "duration": 2.5
+        },
+        {
+            "id": "8",
+            "name": "Market Square",
+            "value": "/sounds/market-square.mp3",
+            "timeout": 10,
+            "duration": 1.24
+        },
+        {
+            "id": "9",
+            "name": "Arcade Outro",
+            "value": "/sounds/arcade-outro.mp3",
+            "timeout": 10,
+            "duration": 0.8
+        },
+        {
+            "id": "10",
+            "name": "Mario Drowning",
+            "value": "/sounds/mario-drowning.mp3",
+            "timeout": 10,
+            "duration": 1
+        },
+        {
+            "id": "11",
+            "name": "Vikings",
+            "value": "/sounds/viking-intro.mp3",
+            "timeout": 10,
+            "duration": 1.95
         }
     ]
 }
